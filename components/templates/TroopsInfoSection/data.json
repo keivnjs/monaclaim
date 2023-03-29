@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Knight",
+    "description": "Knights are the first troop you have to start a kingdom. They are fearless men in armor. You can have more than 1 knight in your Kingdom.",
+    "image": "/assets/troops/card_knight.gif",
+    "attack": 50,
+    "attackDivisor": 80,
+    "deffense": 50,
+    "deffenseDivisor": 80,
+    "hp": 60,
+    "hpDivisor": 100
+  },
+  {
+    "name": "Archer",
+    "description": "There are 10,000 archers. You can have more than 1 archer. Archer has maximum 5 levels where the higher the level, the greater the damage value.",
+    "image": "/assets/troops/card_archer.gif",
+    "attack": 50,
+    "attackDivisor": 70,
+    "deffense": 30,
+    "deffenseDivisor": 80,
+    "hp": 30,
+    "hpDivisor": 80
+  },
+  {
+    "name": "Witch",
+    "description": "There are 8,000 witches. You can have more than 1 witch. The witch has 5 levels where the higher the level, the greater the damage value.",
+    "image": "/assets/troops/card_witch.gif",
+    "attack": 60,
+    "attackDivisor": 80,
+    "deffense": 40,
+    "deffenseDivisor": 70,
+    "hp": 40,
+    "hpDivisor": 80
+  },
+  {
+    "name": "Wizard",
+    "description": "There are 8,000 wizards. You can have more than 1 wizard. The wizard has 5 levels where the higher the level, the greater the damage value.",
+    "image": "/assets/troops/card_wizard.gif",
+    "attack": 70,
+    "attackDivisor": 80,
+    "deffense": 50,
+    "deffenseDivisor": 70,
+    "hp": 40,
+    "hpDivisor": 70
+  },
+  {
+    "name": "Skeleton",
+    "description": "There are 6,000 skeletons. You can have more than 1 skeleton. skeleton has 5 levels where the higher the level, the greater the damage value.",
+    "image": "/assets/troops/card_skeleton.gif",
+    "attack": 50,
+    "attackDivisor": 70,
+    "deffense": 45,
+    "deffenseDivisor": 100,
+    "hp": 30,
+    "hpDivisor": 100
+  },
+  {
+    "name": "Bomber",
+    "description": "There are 6,000 bombers. You can have more than 1 bomber. bomber has 5 levels where the higher the level, the greater the damage value.",
+    "image": "/assets/troops/card_bomber.gif",
+    "attack": 80,
+    "attackDivisor": 90,
+    "deffense": 30,
+    "deffenseDivisor": 100,
+    "hp": 20,
+    "hpDivisor": 100
+  },
+  {
+    "name": "Golem",
+    "description": "There are 5,000 golems. You can have more than 1 golem. golem has 5 levels where the higher the level, the greater the damage value.",
+    "image": "/assets/troops/card_golem.gif",
+    "attack": 90,
+    "attackDivisor": 100,
+    "deffense": 80,
+    "deffenseDivisor": 100,
+    "hp": 120,
+    "hpDivisor": 120
+  },
+  {
+    "name": "Dragon",
+    "description": "There are 4,000 dragons. You can have more than 1 dragon. The dragon has 5 levels where the higher the level, the greater the damage value.",
+    "image": "/assets/troops/card_dragon.gif",
+    "attack": 100,
+    "attackDivisor": 100,
+    "deffense": 90,
+    "deffenseDivisor": 100,
+    "hp": 90,
+    "hpDivisor": 100
+  }
+]

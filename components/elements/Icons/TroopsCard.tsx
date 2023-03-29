@@ -1,0 +1,13 @@
+const TroopsCardIcon: React.FC<{ className?: string }> = (props) => {
+  return (
+    <svg className={props.className} viewBox="0 0 330 625">
+      <image
+        id="troops_card"
+        data-name="troops card"
+        xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAJxBAMAAADWUubFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAIVBMVEUsIgf///9EQEwyPT4sIgdEWVYyPT5OenBEQEwrLy8AAACa57AGAAAABHRSTlMAAAAAs5NmmgAAAAFiS0dECmjQ9FYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfmAQsMOw9Dv/dDAAACl0lEQVR42u3du00DQQBF0QkoAEfktEADIEZQAYgUCQ10sG4Ay3SAu+VnzMeLMAHrt3BuA3uSl6xGM6WsqmmVvraNoqRca6fWs6jOW6v1aDKhpEyqR1nradfN02rt6sPQKSkT+qB8nHfXTbdN6m32NPRDSsqsVsrMeb/1MnRKyqwoKROjpEyMkjIxSsrEKCkTo6RMjJIyMUrKxCgpE6OkTIySMjFKysQoKROjpEyMkjIxSsrEKCkTo6RMjJIyMUrKxCgpE6OkTIzyN5WzltMNJeWIlK1dTnLaW6koKXP6RrnbeyVd2R80SkpKSkpKSkpKSkpKSkrK8SjH8W+DkpKSkpKSkvJfKSefXlChpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpPwN5W4plJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlP9OWb6KkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkjJKGRMl5ZiU8/ntWU4XSxMl5TiUiVFSJkZJmRglZWKUlIlRUiZGSZkYJWVilJSJUVImRkmZGCVlYpSUiVFSJkZJmRgl5WYtBumekvKvKe8WizZI11+eBKekpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSk3KxukKbLr1FS5ipL2am1tZsfQYdq1lqth6VQUib1TvlYrSetbZu01uu8KSmT+qxcDj2sWo8PDigpw1pXPg89rNLXtlGUlKseAHvFnW1DpBiGAAAAAElFTkSuQmCC"
+      />
+    </svg>
+  );
+};
+
+export default TroopsCardIcon;

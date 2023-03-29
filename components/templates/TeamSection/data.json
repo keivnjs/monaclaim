@@ -1,0 +1,47 @@
+[
+  {
+    "name": "0xkirin",
+    "position": "Founder",
+    "image": "/assets/teams/0xkirin.png"
+  },
+  {
+    "name": "Guibert",
+    "position": "Lead Artist",
+    "image": "/assets/teams/lead-artist.png"
+  },
+  {
+    "name": "Gillame",
+    "position": "Tech Lead",
+    "image": "/assets/teams/senior-dev.png"
+  },
+  {
+    "name": "Kane",
+    "position": "Community Lead",
+    "image": "/assets/teams/graphic-design.png"
+  },
+  {
+    "name": "Neka",
+    "position": "3D Artist",
+    "image": "/assets/teams/3d-artist.png"
+  },
+  {
+    "name": "Louis",
+    "position": "Partnership & PR",
+    "image": "/assets/teams/frontend-dev.png"
+  },
+  {
+    "name": "Jason",
+    "position": "Graphic Designer",
+    "image": "/assets/teams/graphic-design-2.png"
+  },
+  {
+    "name": "Ryu",
+    "position": "Blockchain Dev",
+    "image": "/assets/teams/blockchain-dev.png"
+  },
+  {
+    "name": "Li",
+    "position": "Game Dev",
+    "image": "/assets/teams/game-dev.png"
+  }
+]
