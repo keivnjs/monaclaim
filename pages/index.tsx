@@ -213,6 +213,7 @@ const Claim: NextPage = () => {
                     </a>
                   </div>
                 )}
+                claimS
                 {!!ownedMona.length && (
                   <div
                     ref={containerRef}
@@ -258,7 +259,7 @@ const Claim: NextPage = () => {
                 onClick={() => handleClaim()}
                 loading={isLoading}
               >
-                Claim Selected
+                Claim Selected ({getSelected().length})
               </Button>
             </div>
           </Card>
@@ -336,7 +337,7 @@ const MonaCard: React.FC<MonaCardProps> = (props) => {
     <button
       className={classNames(
         isSelected && "ring-2 ring-yellow-200 shadow-glow",
-        // "disabled:grayscale disabled:cursor-not-allowed",
+        "disabled:grayscale disabled:cursor-not-allowed",
         "group snap-center flex-none relative w-44 h-44 rounded-lg cursor-pointer transition",
         "first:ml-6 last:mr-6"
       )}
