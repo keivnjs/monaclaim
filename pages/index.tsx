@@ -34,7 +34,9 @@ const Claim: NextPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedAll, setSelectedAll] = useState<boolean>(false);
-  const [ownedMona, setOwnedMona] = useState<Array<number | string>>([]);
+  const [ownedMona, setOwnedMona] = useState<Array<number>>([]);
+  const [claimStatus, setClaimStatus] = useState<boolean[]>([true]);
+
   const [scrollState, setScrollState] = useState<any>({
     scroller: null,
     itemWidth: 0,
@@ -111,13 +113,23 @@ const Claim: NextPage = () => {
   }, [ownedMona]);
 
   useEffect(() => {
+    ClaimContract.methods
+      .isMonaIdsClaimed(ownedMona)
+      .call()
+      .then((response) => {
+        setClaimStatus(response);
+      });
+  }, [ownedMona]);
+
+  useEffect(() => {
     if (isConnected) {
       ClaimContract.methods
         .tokensOfOwner(address)
         .call()
         .then((response) => {
-          console.log(response);
-          setOwnedMona(response);
+          const responseToNumber = response.map((item) => +item);
+          console.log(responseToNumber);
+          setOwnedMona(responseToNumber);
         });
     }
   }, [address]);
@@ -211,6 +223,7 @@ const Claim: NextPage = () => {
                         key={+item}
                         tokenId={+item}
                         isSelected={selected[item]}
+                        isClaimed={claimStatus[item]}
                         onClick={() => {
                           setSelectedAll(false);
                           setSelected((prev: any) => {
@@ -313,21 +326,11 @@ const Claim: NextPage = () => {
 type MonaCardProps = {
   tokenId: number;
   isSelected: boolean;
+  isClaimed: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const MonaCard: React.FC<MonaCardProps> = (props) => {
-  const { tokenId, isSelected, ...rest } = props;
-
-  const [isExist, setExist] = useState<boolean[]>([true]);
-
-  useEffect(() => {
-    ClaimContract.methods
-      .isMonaIdsClaimed([tokenId])
-      .call()
-      .then((response) => {
-        setExist(response);
-      });
-  }, [tokenId, isSelected]);
+  const { tokenId, isSelected, isClaimed, ...rest } = props;
 
   return (
     <button
@@ -337,7 +340,7 @@ const MonaCard: React.FC<MonaCardProps> = (props) => {
         "group snap-center flex-none relative w-44 h-44 rounded-lg cursor-pointer transition",
         "first:ml-6 last:mr-6"
       )}
-      disabled={!!isExist}
+      disabled={isClaimed}
       {...rest}
     >
       <img
