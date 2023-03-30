@@ -122,12 +122,12 @@ const Claim: NextPage = () => {
   return (
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
       <Head>
-        {/* Twitter */}
+        {/* Twitter
         <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:creator" content="Knights Game" key="twhandle" />
+        <meta name="twitter:creator" content="Knights Game" key="twhandle" /> */}
 
         {/* Open Graph */}
-        <meta property="og:url" content="https://knights.game/" key="ogurl" />
+        {/* <meta property="og:url" content="https://knights.game/" key="ogurl" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/coming-soon.png" key="ogimage" />
         <meta property="og:site_name" content="Knights Game" key="ogsitename" />
@@ -136,9 +136,9 @@ const Claim: NextPage = () => {
           property="og:description"
           content="Knights game is a Play to Earn NFT game with a new way of playing, giving players earn $GODL and NFT while playing the game"
           key="ogdesc"
-        />
+        /> */}
 
-        <title>Claim Mona</title>
+        <title>Claim Mona | Monaverse</title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -199,7 +199,7 @@ const Claim: NextPage = () => {
                 />
                 {!ownedMona.length && (
                   <div className="relative flex flex-col w-full items-center text-center">
-                    <p className="text-2xl">{`You don't have any Mona :(`}</p>
+                    <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
                     <a
                       href="https://opensea.io/collection/monaverse"
                       target="_blank"

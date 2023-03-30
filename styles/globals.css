@@ -3,99 +3,79 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Alagard';
-    font-style: normal;
-    font-weight: 400;
-    src: url("/assets/fonts/alagard.ttf"), url('https://fonts.cdnfonts.com/s/66737/PixeloidSans-nR3g1.woff') format('truetype');
-}
-
-@font-face {
-    font-family: 'Pixeloid Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Pixeloid Sans'), url('https://fonts.cdnfonts.com/s/66737/PixeloidSans-nR3g1.woff') format('woff');
-}
-@font-face {
-    font-family: 'Pixeloid Sans';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Pixeloid Sans'), url('https://fonts.cdnfonts.com/s/66737/PixeloidSansBold-RpeJo.woff') format('woff');
-}
-@font-face {
-    font-family: 'Pixeloid Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Pixeloid Mono'), url('https://fonts.cdnfonts.com/s/66737/PixeloidMono-1G8ae.woff') format('woff');
+  font-family: "World Of Water";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/world of water.otf"), format("truetype");
 }
 
 .speed-slow {
-	animation: movebigclouds 240s linear infinite;
-	-webkit-animation: movebigclouds 240s linear infinite;
-	-moz-animation: movebigclouds 240s linear infinite;
-	-o-animation: movebigclouds 240s linear infinite;
+  animation: movebigclouds 240s linear infinite;
+  -webkit-animation: movebigclouds 240s linear infinite;
+  -moz-animation: movebigclouds 240s linear infinite;
+  -o-animation: movebigclouds 240s linear infinite;
 }
 
 .speed-fast {
-	animation: moveclouds 240s linear infinite;
-	-webkit-animation: moveclouds 240s linear infinite;
-	-moz-animation: moveclouds 240s linear infinite;
-	-o-animation: moveclouds 240s linear infinite;
+  animation: moveclouds 240s linear infinite;
+  -webkit-animation: moveclouds 240s linear infinite;
+  -moz-animation: moveclouds 240s linear infinite;
+  -o-animation: moveclouds 240s linear infinite;
 }
 
 @keyframes movebigclouds {
-	0% {
+  0% {
     margin-left: 0rem;
     margin-right: -100vw;
   }
-	100% {
+  100% {
     margin-left: -100vw;
     margin-right: 0rem;
   }
 }
 
-
 @keyframes moveclouds {
-	0% {
+  0% {
     margin-left: 0vh;
     margin-right: -300vh;
   }
-	100% {
+  100% {
     margin-left: -300vh;
     margin-right: 0vh;
   }
 }
 @-webkit-keyframes moveclouds {
-	0% {
+  0% {
     margin-left: 0vh;
     margin-right: -300vh;
   }
-	100% {
+  100% {
     margin-left: -300vh;
     margin-right: 0vh;
   }
 }
 @-moz-keyframes moveclouds {
-	0% {
+  0% {
     margin-left: 0vh;
     margin-right: -300vh;
   }
-	100% {
+  100% {
     margin-left: -300vh;
     margin-right: 0vh;
   }
 }
 @-o-keyframes moveclouds {
-	0% {
+  0% {
     margin-left: 0vh;
     margin-right: -300vh;
   }
-	100% {
+  100% {
     margin-left: -300vh;
     margin-right: 0vh;
   }
 }
 
-.up-down{
+.up-down {
   animation: up-down linear 4s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
@@ -113,92 +93,92 @@
   -ms-transform-origin: 50% 50%;
 }
 
-@keyframes up-down{
+@keyframes up-down {
   0% {
-    transform:  translate(1px,20px)  ;
+    transform: translate(1px, 20px);
   }
   24% {
-    transform:  translate(1px,30px)  ;
+    transform: translate(1px, 30px);
   }
   50% {
-    transform:  translate(1px,20px)  ;
+    transform: translate(1px, 20px);
   }
   74% {
-    transform:  translate(1px,30px)  ;
+    transform: translate(1px, 30px);
   }
   100% {
-    transform:  translate(1px,20px)  ;
+    transform: translate(1px, 20px);
   }
 }
 
-@-moz-keyframes up-down{
+@-moz-keyframes up-down {
   0% {
-    -moz-transform:  translate(1px,20px)  ;
+    -moz-transform: translate(1px, 20px);
   }
   24% {
-    -moz-transform:  translate(1px,30px)  ;
+    -moz-transform: translate(1px, 30px);
   }
   50% {
-    -moz-transform:  translate(1px,20px)  ;
+    -moz-transform: translate(1px, 20px);
   }
   74% {
-    -moz-transform:  translate(1px,30px)  ;
+    -moz-transform: translate(1px, 30px);
   }
   100% {
-    -moz-transform:  translate(1px,20px)  ;
+    -moz-transform: translate(1px, 20px);
   }
 }
 
 @-webkit-keyframes up-down {
   0% {
-    -webkit-transform:  translate(1px,20px)  ;
+    -webkit-transform: translate(1px, 20px);
   }
   24% {
-    -webkit-transform:  translate(1px,30px)  ;
+    -webkit-transform: translate(1px, 30px);
   }
   50% {
-    -webkit-transform:  translate(1px,20px)  ;
+    -webkit-transform: translate(1px, 20px);
   }
   74% {
-    -webkit-transform:  translate(1px,30px)  ;
+    -webkit-transform: translate(1px, 30px);
   }
   100% {
-    -webkit-transform:  translate(1px,20px)  ;
+    -webkit-transform: translate(1px, 20px);
   }
 }
 
 @-o-keyframes up-down {
   0% {
-    -o-transform:  translate(1px,20px)  ;
+    -o-transform: translate(1px, 20px);
   }
   24% {
-    -o-transform:  translate(1px,30px)  ;
+    -o-transform: translate(1px, 30px);
   }
   50% {
-    -o-transform:  translate(1px,20px)  ;
+    -o-transform: translate(1px, 20px);
   }
   74% {
-    -o-transform:  translate(1px,30px)  ;
+    -o-transform: translate(1px, 30px);
   }
   100% {
-    -o-transform:  translate(1px,20px)  ;
+    -o-transform: translate(1px, 20px);
   }
 }
 
 @-ms-keyframes up-down {
   0% {
-    -ms-transform:  translate(1px,20px)  ;
+    -ms-transform: translate(1px, 20px);
   }
   24% {
-    -ms-transform:  translate(1px,30px)  ;
+    -ms-transform: translate(1px, 30px);
   }
   50% {
-    -ms-transform:  translate(1px,20px)  ;
+    -ms-transform: translate(1px, 20px);
   }
   74% {
-    -ms-transform:  translate(1px,30px)  ;
+    -ms-transform: translate(1px, 30px);
   }
   100% {
-    -ms-transform:  translate(1px,20px)  ;
+    -ms-transform: translate(1px, 20px);
   }
 }

@@ -10,11 +10,11 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        'glow': '0px 0px 16px #facc15',
+        glow: "0px 0px 16px #facc15",
       },
       fontFamily: {
-        display: ["Alagard", ...defaultTheme.fontFamily.sans],
-        sans: ["Pixeloid Sans", ...defaultTheme.fontFamily.sans],
+        display: ["World Of Water", ...defaultTheme.fontFamily.sans],
+        sans: ["World Of Water", ...defaultTheme.fontFamily.sans],
       },
     },
   },
