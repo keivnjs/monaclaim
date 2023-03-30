@@ -122,33 +122,17 @@ const Claim: NextPage = () => {
   return (
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
       <Head>
-        {/* Twitter
-        <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:creator" content="Knights Game" key="twhandle" /> */}
-
-        {/* Open Graph */}
-        {/* <meta property="og:url" content="https://knights.game/" key="ogurl" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/coming-soon.png" key="ogimage" />
-        <meta property="og:site_name" content="Knights Game" key="ogsitename" />
-        <meta property="og:title" content="Minting" key="ogtitle" />
-        <meta
-          property="og:description"
-          content="Knights game is a Play to Earn NFT game with a new way of playing, giving players earn $GODL and NFT while playing the game"
-          key="ogdesc"
-        /> */}
-
         <title>Claim Mona | Monaverse</title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
-      {/* <ClaimSuccessModal
+      <ClaimSuccessModal
         isOpen={isModalOpen}
         closeModal={() => setIsModalOpen(false)}
-        address={accounts[0]}
-      /> */}
+        address={address}
+      />
 
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
@@ -180,7 +164,7 @@ const Claim: NextPage = () => {
           <Card className="lg:h-2/3 lg:max-h-[34.75rem]">
             <div className="relative w-full h-1/4 mb-4">
               <img
-                src="/assets/claim-knights-banner.png"
+                src="/assets/daovinci-b221c8125668459d6f66816934a38064.png"
                 className="absolute inset-0 h-full w-full object-scale-down"
               />
             </div>
