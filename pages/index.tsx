@@ -64,6 +64,17 @@ const Claim: NextPage = () => {
   };
 
   const handleClaim = () => {
+    const selectedItems = getSelected();
+    if (selectedItems.length === 0) {
+      alert("No items selected");
+      return;
+    }
+
+    if (selectedItems.length % 2 !== 0) {
+      alert("Please select a multiple of two items");
+      return;
+    }
+
     setLoading(true);
     ClaimContract.methods
       .claim(getSelected())
@@ -255,7 +266,9 @@ const Claim: NextPage = () => {
               </Button>
               <Button
                 className="!w-56 h-14 text-lg"
-                disabled={!getSelected().length}
+                disabled={
+                  getSelected().length === 0 || getSelected().length % 2 !== 0
+                }
                 onClick={() => handleClaim()}
                 loading={isLoading}
               >
