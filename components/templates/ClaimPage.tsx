@@ -61,21 +61,21 @@ const Claim: NextPage = () => {
     setSelectedAll(!selectedAll);
   };
 
-  // const handleClaim = () => {
-  //   setLoading(true);
-  //   ClaimContract.methods
-  //     .claim(getSelected())
-  //     .send({ from: accounts[0] })
-  //     .once("transactionHash", (txHash) => {})
-  //     .once("receipt", (receipt) => {
-  //       setIsModalOpen(true);
-  //       setLoading(false);
-  //       setSelected({});
-  //     })
-  //     .once("error", (error) => {
-  //       setLoading(false);
-  //     });
-  // };
+  const handleClaim = () => {
+    setLoading(true);
+    ClaimContract.methods
+      .claim(getSelected())
+      .send({ from: address })
+      .once("transactionHash", (txHash) => {})
+      .once("receipt", (receipt) => {
+        setIsModalOpen(true);
+        setLoading(false);
+        setSelected({});
+      })
+      .once("error", (error) => {
+        setLoading(false);
+      });
+  };
 
   const next = () => {
     scrollState.scroller.scrollBy({
@@ -110,50 +110,37 @@ const Claim: NextPage = () => {
     return () => {};
   }, [ownedMona]);
 
-  // useEffect(() => {
-  //   if (status === "READY") {
-  //     ERC721Contract.methods.tokensOfOwner(accounts[0]).call().then(response => {
-  //       console.log(response)
-  //       setOwnedMona(response)
-  //     })
-  //   }
-  // }, [accounts, status]);
+  useEffect(() => {
+    if (isConnected) {
+      ClaimContract.methods
+        .tokensOfOwner(address)
+        .call()
+        .then((response) => {
+          console.log(response);
+          setOwnedMona(response);
+        });
+    }
+  }, [address]);
 
   return (
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
       <Head>
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:creator" content="Knights Game" key="twhandle" />
-
-        {/* Open Graph */}
-        <meta property="og:url" content="https://knights.game/" key="ogurl" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/coming-soon.png" key="ogimage" />
-        <meta property="og:site_name" content="Knights Game" key="ogsitename" />
-        <meta property="og:title" content="Minting" key="ogtitle" />
-        <meta
-          property="og:description"
-          content="Knights game is a Play to Earn NFT game with a new way of playing, giving players earn $GODL and NFT while playing the game"
-          key="ogdesc"
-        />
-
-        <title>Claim Mona</title>
+        <title>Claim Mona | Monaverse</title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
-      {/* <ClaimSuccessModal
+      <ClaimSuccessModal
         isOpen={isModalOpen}
         closeModal={() => setIsModalOpen(false)}
-        address={accounts[0]}
-      /> */}
+        address={address}
+      />
 
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
           <Image
-            src="/assets/minting-ground.png"
+            src="/assets/cover_house-alt-2-0343dbcd09210d15bf8543e4d28b1c77.png"
             layout="fill"
             objectFit="cover"
           />
@@ -167,8 +154,8 @@ const Claim: NextPage = () => {
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center space-y-4">
-            <p className="text-3xl text-center text-blue-900 font-bold">
-              Connect wallet to claim!
+            <p className="text-3xl text-center text-yellow-500 font-bold">
+              Connect wallet to claim your MONA!
             </p>
             <div className="relative flex flex-col inset-x-0 justify-center items-center">
               <ConnectButton />
@@ -180,7 +167,7 @@ const Claim: NextPage = () => {
           <Card className="lg:h-2/3 lg:max-h-[34.75rem]">
             <div className="relative w-full h-1/4 mb-4">
               <img
-                src="/assets/claim-knights-banner.png"
+                src="/assets/daovinci-b221c8125668459d6f66816934a38064.png"
                 className="absolute inset-0 h-full w-full object-scale-down"
               />
             </div>
@@ -199,7 +186,7 @@ const Claim: NextPage = () => {
                 />
                 {!ownedMona.length && (
                   <div className="relative flex flex-col w-full items-center text-center">
-                    <p className="text-2xl">{`You don't have any Mona :(`}</p>
+                    <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
                     <a
                       href="https://opensea.io/collection/monaverse"
                       target="_blank"

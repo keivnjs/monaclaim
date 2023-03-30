@@ -61,21 +61,21 @@ const Claim: NextPage = () => {
     setSelectedAll(!selectedAll);
   };
 
-  // const handleClaim = () => {
-  //   setLoading(true);
-  //   ClaimContract.methods
-  //     .claim(getSelected())
-  //     .send({ from: accounts[0] })
-  //     .once("transactionHash", (txHash) => {})
-  //     .once("receipt", (receipt) => {
-  //       setIsModalOpen(true);
-  //       setLoading(false);
-  //       setSelected({});
-  //     })
-  //     .once("error", (error) => {
-  //       setLoading(false);
-  //     });
-  // };
+  const handleClaim = () => {
+    setLoading(true);
+    ClaimContract.methods
+      .claim(getSelected())
+      .send({ from: address })
+      .once("transactionHash", (txHash) => {})
+      .once("receipt", (receipt) => {
+        setIsModalOpen(true);
+        setLoading(false);
+        setSelected({});
+      })
+      .once("error", (error) => {
+        setLoading(false);
+      });
+  };
 
   const next = () => {
     scrollState.scroller.scrollBy({
@@ -110,14 +110,17 @@ const Claim: NextPage = () => {
     return () => {};
   }, [ownedMona]);
 
-  // useEffect(() => {
-  //   if (status === "READY") {
-  //     ERC721Contract.methods.tokensOfOwner(accounts[0]).call().then(response => {
-  //       console.log(response)
-  //       setOwnedMona(response)
-  //     })
-  //   }
-  // }, [accounts, status]);
+  useEffect(() => {
+    if (isConnected) {
+      ClaimContract.methods
+        .tokensOfOwner(address)
+        .call()
+        .then((response) => {
+          console.log(response);
+          setOwnedMona(response);
+        });
+    }
+  }, [address]);
 
   return (
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
@@ -137,7 +140,7 @@ const Claim: NextPage = () => {
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
           <Image
-            src="/assets/minting-ground.png"
+            src="/assets/cover_house-alt-2-0343dbcd09210d15bf8543e4d28b1c77.png"
             layout="fill"
             objectFit="cover"
           />
@@ -151,8 +154,8 @@ const Claim: NextPage = () => {
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center space-y-4">
-            <p className="text-3xl text-center text-blue-900 font-bold">
-              Connect wallet to claim!
+            <p className="text-3xl text-center text-yellow-500 font-bold">
+              Connect wallet to claim your MONA!
             </p>
             <div className="relative flex flex-col inset-x-0 justify-center items-center">
               <ConnectButton />

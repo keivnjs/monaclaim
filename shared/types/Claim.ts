@@ -37,6 +37,16 @@ export type ApprovalForAll = ContractEventLog<{
   1: string;
   2: boolean;
 }>;
+export type ConsecutiveTransfer = ContractEventLog<{
+  fromTokenId: string;
+  toTokenId: string;
+  from: string;
+  to: string;
+  0: string;
+  1: string;
+  2: string;
+  3: string;
+}>;
 export type OwnershipTransferred = ContractEventLog<{
   previousOwner: string;
   newOwner: string;
@@ -65,11 +75,40 @@ export interface Claim extends BaseContract {
       tokenId: number | string | BN
     ): NonPayableTransactionObject<void>;
 
+    balanceOf(owner: string): NonPayableTransactionObject<string>;
+
+    baseURI(): NonPayableTransactionObject<string>;
+
     claim(
-      tokenIds: (number | string | BN)[]
+      _monaTokenIds: (number | string | BN)[]
     ): NonPayableTransactionObject<void>;
 
+    claimableStatus(): NonPayableTransactionObject<boolean>;
+
+    getApproved(
+      tokenId: number | string | BN
+    ): NonPayableTransactionObject<string>;
+
+    isApprovedForAll(
+      owner: string,
+      operator: string
+    ): NonPayableTransactionObject<boolean>;
+
+    isMonaIdsClaimed(
+      _monaTokenIds: (number | string | BN)[]
+    ): NonPayableTransactionObject<boolean[]>;
+
+    maxSupply(): NonPayableTransactionObject<string>;
+
+    name(): NonPayableTransactionObject<string>;
+
+    owner(): NonPayableTransactionObject<string>;
+
+    ownerOf(tokenId: number | string | BN): NonPayableTransactionObject<string>;
+
     renounceOwnership(): NonPayableTransactionObject<void>;
+
+    reserves(_amount: number | string | BN): NonPayableTransactionObject<void>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -89,7 +128,23 @@ export interface Claim extends BaseContract {
       approved: boolean
     ): NonPayableTransactionObject<void>;
 
-    setBaseURI(_newURI: string): NonPayableTransactionObject<void>;
+    setClaimableStatus(status: boolean): NonPayableTransactionObject<void>;
+
+    setURI(uri: string): NonPayableTransactionObject<void>;
+
+    supportsInterface(
+      interfaceId: string | number[]
+    ): NonPayableTransactionObject<boolean>;
+
+    symbol(): NonPayableTransactionObject<string>;
+
+    tokenURI(
+      tokenId: number | string | BN
+    ): NonPayableTransactionObject<string>;
+
+    tokensOfOwner(owner: string): NonPayableTransactionObject<string[]>;
+
+    totalSupply(): NonPayableTransactionObject<string>;
 
     transferFrom(
       from: string,
@@ -98,54 +153,6 @@ export interface Claim extends BaseContract {
     ): NonPayableTransactionObject<void>;
 
     transferOwnership(newOwner: string): NonPayableTransactionObject<void>;
-
-    balanceOf(owner: string): NonPayableTransactionObject<string>;
-
-    baseURI(): NonPayableTransactionObject<string>;
-
-    getApproved(
-      tokenId: number | string | BN
-    ): NonPayableTransactionObject<string>;
-
-    isApprovedForAll(
-      owner: string,
-      operator: string
-    ): NonPayableTransactionObject<boolean>;
-
-    isExists(
-      tokenId: number | string | BN
-    ): NonPayableTransactionObject<boolean>;
-
-    kgAddress(): NonPayableTransactionObject<string>;
-
-    name(): NonPayableTransactionObject<string>;
-
-    owner(): NonPayableTransactionObject<string>;
-
-    ownerOf(tokenId: number | string | BN): NonPayableTransactionObject<string>;
-
-    supportsInterface(
-      interfaceId: string | number[]
-    ): NonPayableTransactionObject<boolean>;
-
-    symbol(): NonPayableTransactionObject<string>;
-
-    tokenByIndex(
-      index: number | string | BN
-    ): NonPayableTransactionObject<string>;
-
-    tokenOfOwnerByIndex(
-      owner: string,
-      index: number | string | BN
-    ): NonPayableTransactionObject<string>;
-
-    tokensOfOwner(owner: string): NonPayableTransactionObject<string[]>;
-
-    tokenURI(
-      tokenId: number | string | BN
-    ): NonPayableTransactionObject<string>;
-
-    totalSupply(): NonPayableTransactionObject<string>;
   };
   events: {
     Approval(cb?: Callback<Approval>): EventEmitter;
@@ -155,6 +162,12 @@ export interface Claim extends BaseContract {
     ApprovalForAll(
       options?: EventOptions,
       cb?: Callback<ApprovalForAll>
+    ): EventEmitter;
+
+    ConsecutiveTransfer(cb?: Callback<ConsecutiveTransfer>): EventEmitter;
+    ConsecutiveTransfer(
+      options?: EventOptions,
+      cb?: Callback<ConsecutiveTransfer>
     ): EventEmitter;
 
     OwnershipTransferred(cb?: Callback<OwnershipTransferred>): EventEmitter;
@@ -177,6 +190,13 @@ export interface Claim extends BaseContract {
     event: "ApprovalForAll",
     options: EventOptions,
     cb: Callback<ApprovalForAll>
+  ): void;
+
+  once(event: "ConsecutiveTransfer", cb: Callback<ConsecutiveTransfer>): void;
+  once(
+    event: "ConsecutiveTransfer",
+    options: EventOptions,
+    cb: Callback<ConsecutiveTransfer>
   ): void;
 
   once(event: "OwnershipTransferred", cb: Callback<OwnershipTransferred>): void;
