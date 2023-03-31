@@ -55,10 +55,12 @@ const Claim: NextPage = () => {
   };
 
   const handleSelectAll = () => {
-    ownedMona.forEach((item) => {
-      setSelected((prev: any) => {
-        return { ...prev, [item]: !selectedAll };
-      });
+    ownedMona.forEach((item, index) => {
+      if (!claimStatus[index]) {
+        setSelected((prev: any) => {
+          return { ...prev, [item]: !selectedAll };
+        });
+      }
     });
     setSelectedAll(!selectedAll);
   };
