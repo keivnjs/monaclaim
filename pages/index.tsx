@@ -35,7 +35,7 @@ const Claim: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedAll, setSelectedAll] = useState<boolean>(false);
   const [ownedMona, setOwnedMona] = useState<Array<number>>([]);
-  const [claimStatus, setClaimStatus] = useState<boolean[]>([true]);
+  const [claimStatus, setClaimStatus] = useState<Array<boolean>>([]);
 
   const [scrollState, setScrollState] = useState<any>({
     scroller: null,
@@ -130,7 +130,7 @@ const Claim: NextPage = () => {
       .then((response) => {
         setClaimStatus(response);
       });
-  }, [ownedMona]);
+  }, [claimStatus]);
 
   useEffect(() => {
     if (isConnected) {
@@ -230,12 +230,12 @@ const Claim: NextPage = () => {
                     ref={containerRef}
                     className="snap-mandatory snap-x overflow-x-auto flex gap-6 py-4 h-full"
                   >
-                    {ownedMona.map((item) => (
+                    {ownedMona.map((item, index) => (
                       <MonaCard
                         key={+item}
                         tokenId={+item}
                         isSelected={selected[item]}
-                        isClaimed={claimStatus[item]}
+                        isClaimed={claimStatus[index]}
                         onClick={() => {
                           setSelectedAll(false);
                           setSelected((prev: any) => {
