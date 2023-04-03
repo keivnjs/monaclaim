@@ -192,7 +192,7 @@ const Claim: NextPage = () => {
           <Card className="lg:h-2/3 lg:max-h-[34.75rem]">
             <div className="relative w-full h-1/4 mb-4">
               <img
-                src="/assets/daovinci-b221c8125668459d6f66816934a38064.png"
+                src="/assets/monaverse.png"
                 className="absolute inset-0 h-full w-full object-scale-down"
               />
             </div>
