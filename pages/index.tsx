@@ -226,7 +226,6 @@ const Claim: NextPage = () => {
                     </a>
                   </div>
                 )}
-                claimS
                 {!!ownedMona.length && (
                   <div
                     ref={containerRef}
