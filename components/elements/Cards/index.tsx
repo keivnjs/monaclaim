@@ -10,7 +10,7 @@ export const Card: React.FC<Props> = (props) => {
 
   return (
     <div className={classNames("relative", className)}>
-      <img src="/assets/borders/staking-board.png" className="w-full h-full" />
+      <img src="/assets/borders/border2.png" className="w-full h-full" />
       <div className="absolute inset-8">
         <>{children}</>
       </div>

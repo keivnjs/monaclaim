@@ -172,14 +172,14 @@ const Claim: NextPage = () => {
         </div>
       </div>
 
-      {/* {!isConnected && (
+      {!isConnected && (
         <div className="absolute inset-0 z-20 w-full h-screen bg-white bg-opacity-50" />
-      )} */}
+      )}
 
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
-          <div className="h-screen w-full flex flex-col justify-center space-y-4">
-            <p className="text-3xl text-center text-yellow-500 font-bold">
+          <div className="h-screen w-full flex flex-col justify-center space-y-9">
+            <p className="text-3xl text-center text-yellow-600 font-bold">
               Connect wallet to claim your MONA!
             </p>
             <div className="relative flex flex-col inset-x-0 justify-center items-center">
@@ -193,7 +193,7 @@ const Claim: NextPage = () => {
             <div className="relative w-full h-1/4 mb-4">
               <img
                 src="/assets/monaverse.png"
-                className="absolute inset-0 h-full w-full object-scale-down"
+                className="absolute inset-0 h-full w-full object-scale-down mt-4"
               />
             </div>
 
@@ -205,10 +205,10 @@ const Claim: NextPage = () => {
                 <ArrowLeftIcon className="mx-auto w-14 h-14" />
               </button>
               <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
-                <img
+                {/* <img
                   src="/assets/containers/inner-board-lg.png"
                   className="absolute inset-0 h-full w-full"
-                />
+                /> */}
                 {!ownedMona.length && (
                   <div className="relative flex flex-col w-full items-center text-center">
                     <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
@@ -229,7 +229,7 @@ const Claim: NextPage = () => {
                 {!!ownedMona.length && (
                   <div
                     ref={containerRef}
-                    className="snap-mandatory snap-x overflow-x-auto flex gap-6 py-4 h-full"
+                    className="snap-mandatory snap-x overflow-hidden mb-4 flex gap-4 py-4 h-full"
                   >
                     {ownedMona.map((item, index) => (
                       <MonaCard

@@ -5,7 +5,7 @@ import Button from "components/elements/Buttons";
 import { ClaimContract } from "shared/utils/contracts";
 
 const Checker: NextPage = () => {
-  const [tokenId, setTokenId] = useState<number | null>(0);
+  const [tokenId, setTokenId] = useState<number | null>(null);
   const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
 
   const checkToken = async () => {
@@ -36,14 +36,20 @@ const Checker: NextPage = () => {
           defaultValue=""
           placeholder="Enter token ID"
           className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm px-2 py-1 rounded mr-5"
-          onChange={(e) =>
-            setTokenId(e.target.value === "" ? null : parseInt(e.target.value))
-          }
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === "") {
+              setTokenId(null);
+              setIsAvailable(null);
+            } else {
+              setTokenId(parseInt(value));
+            }
+          }}
         />
 
         <Button onClick={checkToken}>Check</Button>
       </div>
-      {isAvailable !== null && (
+      {tokenId !== null && isAvailable !== null && (
         <div className="mt-4">
           {isAvailable ? (
             <p className="text-green-500">
