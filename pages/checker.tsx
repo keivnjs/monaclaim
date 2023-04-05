@@ -32,7 +32,7 @@ const Checker: NextPage = () => {
       <div className="flex items-center space-x-4">
         <input
           type="number"
-          min="0"
+          min="1"
           defaultValue=""
           placeholder="Enter token ID"
           className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm px-2 py-1 rounded mr-5"

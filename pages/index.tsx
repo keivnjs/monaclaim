@@ -28,6 +28,8 @@ import type {
 const Claim: NextPage = () => {
   const containerRef = useRef<any>(null);
 
+  const [current, setCurrent] = useState(0);
+
   // const { status, accounts, error } = useMetamask();
   const { isConnected, address } = useAccount();
   const [selected, setSelected] = useState<any>({});
@@ -114,6 +116,14 @@ const Claim: NextPage = () => {
     // Show remaining
   };
 
+  const nextSlide = () => {
+    setCurrent(current === ownedMona.length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? ownedMona.length - 1 : current - 1);
+  };
+
   useEffect(() => {
     if (ownedMona.length) {
       const scroller = containerRef.current;
@@ -189,94 +199,186 @@ const Claim: NextPage = () => {
         )}
 
         {isConnected && (
-          <Card className="lg:h-2/3 lg:max-h-[34.75rem]">
-            <div className="relative w-full h-1/4 mb-4">
-              <img
-                src="/assets/monaverse.png"
-                className="absolute inset-0 h-full w-full object-scale-down mt-4"
-              />
-            </div>
+          <>
+            <Card className="hidden sm:block lg:h-2/3 lg:max-h-[34.75rem]">
+              <div className="relative w-full h-1/4 mb-4">
+                <img
+                  src="/assets/monaverse.png"
+                  className="absolute inset-0 h-full w-full object-scale-down mt-4"
+                />
+              </div>
 
-            <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
-              <button
-                className="hover:-translate-y-px w-1/12"
-                onClick={() => prev()}
-              >
-                <ArrowLeftIcon className="mx-auto w-14 h-14" />
-              </button>
-              <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
-                {/* <img
+              <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
+                <button
+                  className="hover:-translate-y-px w-1/12 inset-0"
+                  onClick={() => prev()}
+                >
+                  <ArrowLeftIcon className="mx-auto w-14 h-14" />
+                </button>
+                <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
+                  {/* <img
                   src="/assets/containers/inner-board-lg.png"
                   className="absolute inset-0 h-full w-full"
                 /> */}
-                {!ownedMona.length && (
-                  <div className="relative flex flex-col w-full items-center text-center">
-                    <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
-                    <a
-                      href="https://opensea.io/collection/monaverse"
-                      target="_blank"
+                  {!ownedMona.length && (
+                    <div className="relative flex flex-col w-full items-center text-center">
+                      <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
+                      <a
+                        href="https://opensea.io/collection/monaverse"
+                        target="_blank"
+                      >
+                        <Button className="!w-60 h-14 mt-4" variant="secondary">
+                          <span> Buy on Opensea </span>
+                          <img
+                            src="/assets/icons/icon-opensea.png"
+                            className="w-6 h-6 ml-2"
+                          />
+                        </Button>
+                      </a>
+                    </div>
+                  )}
+                  {!!ownedMona.length && (
+                    <div
+                      ref={containerRef}
+                      className="snap-mandatory snap-x overflow-hidden mb-4 flex gap-4 py-4 h-full"
                     >
-                      <Button className="!w-60 h-14 mt-4" variant="secondary">
-                        <span> Buy on Opensea </span>
-                        <img
-                          src="/assets/icons/icon-opensea.png"
-                          className="w-6 h-6 ml-2"
+                      {ownedMona.map((item, index) => (
+                        <MonaCard
+                          key={+item}
+                          tokenId={+item}
+                          isSelected={selected[item]}
+                          isClaimed={claimStatus[index]}
+                          onClick={() => {
+                            setSelectedAll(false);
+                            setSelected((prev: any) => {
+                              return { ...prev, [item]: !selected[item] };
+                            });
+                          }}
                         />
-                      </Button>
-                    </a>
-                  </div>
-                )}
-                {!!ownedMona.length && (
-                  <div
-                    ref={containerRef}
-                    className="snap-mandatory snap-x overflow-hidden mb-4 flex gap-4 py-4 h-full"
-                  >
-                    {ownedMona.map((item, index) => (
-                      <MonaCard
-                        key={+item}
-                        tokenId={+item}
-                        isSelected={selected[item]}
-                        isClaimed={claimStatus[index]}
-                        onClick={() => {
-                          setSelectedAll(false);
-                          setSelected((prev: any) => {
-                            return { ...prev, [item]: !selected[item] };
-                          });
-                        }}
-                      />
-                    ))}
-                  </div>
-                )}
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <button
+                  className="hover:-translate-y-px w-1/12 inset-0"
+                  onClick={() => next()}
+                >
+                  <ArrowRightIcon className="mx-auto w-14 h-14" />
+                </button>
               </div>
-              <button
-                className="hover:-translate-y-px w-1/12"
-                onClick={() => next()}
-              >
-                <ArrowRightIcon className="mx-auto w-14 h-14" />
-              </button>
-            </div>
 
-            <div className="relative flex items-center justify-between space-x-4 w-10/12 h-1/4 mx-auto">
-              <Button
-                className="!w-44 h-14 text-lg"
-                onClick={() => handleSelectAll()}
-                variant="secondary"
-              >
-                {!selectedAll && "Select All"}
-                {selectedAll && "Unselect All"}
-              </Button>
-              <Button
-                className="!w-56 h-14 text-lg"
-                disabled={
-                  getSelected().length === 0 || getSelected().length % 2 !== 0
-                }
-                onClick={() => handleClaim()}
-                loading={isLoading}
-              >
-                Claim Selected ({getSelected().length})
-              </Button>
+              <div className="relative flex items-center justify-between space-x-4 w-10/12 h-1/4 mx-auto">
+                <Button
+                  className="!w-44 h-14 text-lg"
+                  onClick={() => handleSelectAll()}
+                  variant="secondary"
+                >
+                  {!selectedAll && "Select All"}
+                  {selectedAll && "Unselect All"}
+                </Button>
+                <Button
+                  className="!w-56 h-14 text-lg"
+                  disabled={
+                    getSelected().length === 0 || getSelected().length % 2 !== 0
+                  }
+                  onClick={() => handleClaim()}
+                  loading={isLoading}
+                >
+                  Claim Selected ({getSelected().length})
+                </Button>
+              </div>
+            </Card>
+
+            {/* // Responsive */}
+            <div className="block sm:hidden lg:h-2/3 lg:max-h-[34.75rem]">
+              <div className="flex flex-col px-4 mx-auto">
+                <img
+                  src="/assets/monaverse.png"
+                  className="mx-auto h-50 w-50 mt-1 object-scale-down"
+                />
+              </div>
+              <div className="flex justify-center mb-10">
+                <div className="flex items-center relative">
+                  <button
+                    className="relative left-0 transition-all transform hover:translate-x-1 hover:shadow-2xl hover:shadow-yellow-900"
+                    onClick={prevSlide}
+                  >
+                    <ArrowLeftIcon className="w-14 h-14 sm:w-14 sm:h-14" />
+                  </button>
+                  <div className="flex-col">
+                    {!ownedMona.length && (
+                      <div className="relative flex flex-col w-full items-center text-center">
+                        <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
+                        <a
+                          href="https://opensea.io/collection/monaverse"
+                          target="_blank"
+                        >
+                          <Button
+                            className="!w-60 h-14 mt-4"
+                            variant="secondary"
+                          >
+                            <span> Buy on Opensea </span>
+                            <img
+                              src="/assets/icons/icon-opensea.png"
+                              className="w-6 h-6 ml-2"
+                            />
+                          </Button>
+                        </a>
+                      </div>
+                    )}
+                    {!!ownedMona.length && (
+                      <div className="flex items-center justify-center">
+                        {ownedMona.map(
+                          (item, index) =>
+                            index === current && (
+                              <MonaCard
+                                key={+item}
+                                tokenId={+item}
+                                isSelected={selected[item]}
+                                isClaimed={claimStatus[index]}
+                                onClick={() => {
+                                  setSelectedAll(false);
+                                  setSelected((prev: any) => {
+                                    return { ...prev, [item]: !selected[item] };
+                                  });
+                                }}
+                              />
+                            )
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    className="relative right-0 transition-all transform hover:translate-x-1 hover:shadow-2xl hover:shadow-yellow-900"
+                    onClick={nextSlide}
+                  >
+                    <ArrowRightIcon className="mx-auto w-14 h-14" />
+                  </button>
+                </div>
+              </div>
+              <div className="relative flex items-center justify-between space-x-4 w-10/12 h-1/4 mx-auto">
+                <Button
+                  className="!w-44 h-14 text-lg"
+                  onClick={() => handleSelectAll()}
+                  variant="secondary"
+                >
+                  {!selectedAll && "Select All"}
+                  {selectedAll && "Unselect All"}
+                </Button>
+                <Button
+                  className="!w-56 h-14 text-lg"
+                  disabled={
+                    getSelected().length === 0 || getSelected().length % 2 !== 0
+                  }
+                  onClick={() => handleClaim()}
+                  loading={isLoading}
+                >
+                  Claim Selected ({getSelected().length})
+                </Button>
+              </div>
             </div>
-          </Card>
+          </>
         )}
       </div>
 
