@@ -210,7 +210,7 @@ const Claim: NextPage = () => {
 
               <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
                 <button
-                  className="hover:-translate-y-px w-1/12 inset-0"
+                  className="hover:-translate-y-px w-1/12 inset-2"
                   onClick={() => prev()}
                 >
                   <ArrowLeftIcon className="mx-auto w-14 h-14" />
@@ -260,7 +260,7 @@ const Claim: NextPage = () => {
                   )}
                 </div>
                 <button
-                  className="hover:-translate-y-px w-1/12 inset-0"
+                  className="hover:-translate-y-px w-1/12 inset-2"
                   onClick={() => next()}
                 >
                   <ArrowRightIcon className="mx-auto w-14 h-14" />
