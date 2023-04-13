@@ -57,7 +57,7 @@ const Checker: NextPage = () => {
             </p>
           ) : (
             <p className="text-red-500">
-              Token ID {tokenId} is not available to claim.
+              Token ID {tokenId} is not available to claim
             </p>
           )}
         </div>

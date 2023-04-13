@@ -18,12 +18,16 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-// import { abi } from "../contract-abi";
 import type {
   UsePrepareContractWriteConfig,
   UseContractReadConfig,
   UseContractWriteConfig,
 } from "wagmi";
+
+import { AiOutlineTwitter, AiOutlineClose } from "react-icons/ai";
+import { animated, useTransition } from "@react-spring/web";
+
+import logo from "public/assets/monaverse-logo.png";
 
 const Claim: NextPage = () => {
   const containerRef = useRef<any>(null);
@@ -38,6 +42,14 @@ const Claim: NextPage = () => {
   const [selectedAll, setSelectedAll] = useState<boolean>(false);
   const [ownedMona, setOwnedMona] = useState<Array<number>>([]);
   const [claimStatus, setClaimStatus] = useState<Array<boolean>>([]);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const navTransition = useTransition(isNavOpen, {
+    from: { opacity: 0, transform: "translateY(-100%)" },
+    enter: { opacity: 1, transform: "translateY(0%)" },
+    leave: { opacity: 0, transform: "translateY(-100%)" },
+    config: { duration: 300 },
+  });
 
   const [scrollState, setScrollState] = useState<any>({
     scroller: null,
@@ -159,19 +171,94 @@ const Claim: NextPage = () => {
 
   return (
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
+      {!isConnected && (
+        <div className="bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 z-30 absolute w-full">
+          <Image src={logo} className="w-auto h-8 md:h-10" />
+          <div className="hidden md:flex md:space-x-4 md:mr-20">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+            </a>
+            {/* Add other links here */}
+          </div>
+          <button
+            className="md:hidden focus:outline-none"
+            onClick={() => setIsNavOpen(!isNavOpen)}
+          >
+            <div className="w-6 h-px bg-white mb-1"></div>
+            <div className="w-6 h-px bg-white mb-1"></div>
+            <div className="w-6 h-px bg-white"></div>
+          </button>
+          {navTransition((style, item) =>
+            item ? (
+              <animated.div
+                style={style}
+                className="fixed inset-0 z-10 bg-black text-white flex flex-col items-center justify-center space-y-4"
+              >
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl font-bold hover:text-gray-300"
+                >
+                  Twitter
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl font-bold hover:text-gray-300"
+                >
+                  Twitter
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl font-bold hover:text-gray-300"
+                >
+                  Twitter
+                </a>
+                <button
+                  className="absolute top-5 right-5 focus:outline-none"
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  <AiOutlineClose className="text-2xl" />
+                </button>
+              </animated.div>
+            ) : null
+          )}
+        </div>
+      )}
+      ;
       <Head>
         <title>Claim Mona | Monaverse</title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-
       <ClaimSuccessModal
         isOpen={isModalOpen}
         closeModal={() => setIsModalOpen(false)}
         address={address}
       />
-
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
           <Image
@@ -181,11 +268,9 @@ const Claim: NextPage = () => {
           />
         </div>
       </div>
-
       {!isConnected && (
         <div className="absolute inset-0 z-20 w-full h-screen bg-white bg-opacity-50" />
       )}
-
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center space-y-9">
@@ -381,7 +466,6 @@ const Claim: NextPage = () => {
           </>
         )}
       </div>
-
       <div className="absolute top-0 flex w-full min-h-screen">
         <div className="speed-slow relative flex w-full">
           <div
@@ -432,7 +516,6 @@ const Claim: NextPage = () => {
           </div>
         </div>
       </div>
-
       <div className="fixed inset-0 min-h-screen w-full">
         <Image src="/assets/bg-sky.png" layout="fill" />
       </div>
@@ -466,12 +549,17 @@ const MonaCard: React.FC<MonaCardProps> = (props) => {
       />
       <img
         src={
-          "https://bafybeicr7d5kouaqmqlknz7ehxn44nffedkkkgbpat3cz6xynrdcobjs5e.ipfs.dweb.link/" +
-          tokenId +
-          ".png"
+          tokenId === 10
+            ? "https://bafybeifbrx6lwx2u6nhiwflh4kko6oitqf6f2s7kzytb5yp74hwrgvdwka.ipfs.dweb.link/" +
+              tokenId +
+              ".png"
+            : "https://bafybeicr7d5kouaqmqlknz7ehxn44nffedkkkgbpat3cz6xynrdcobjs5e.ipfs.dweb.link/" +
+              tokenId +
+              ".png"
         }
         className="absolute inset-0 p-3 h-full w-full"
       />
+
       <div className="absolute bottom-2 right-2">
         <p
           className={classNames(

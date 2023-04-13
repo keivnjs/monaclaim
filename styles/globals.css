@@ -182,3 +182,7 @@
     -ms-transform: translate(1px, 20px);
   }
 }
+
+.dropdown-menu {
+  transition: transform 0.3s ease-in-out;
+}
