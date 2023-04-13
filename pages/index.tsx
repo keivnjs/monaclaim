@@ -171,83 +171,82 @@ const Claim: NextPage = () => {
 
   return (
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
-      {!isConnected && (
-        <div className="bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 z-30 absolute w-full">
-          <Image src={logo} className="w-auto h-8 md:h-10" />
-          <div className="hidden md:flex md:space-x-4 md:mr-20">
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
-            </a>
-            {/* Add other links here */}
-          </div>
-          <button
-            className="md:hidden focus:outline-none"
-            onClick={() => setIsNavOpen(!isNavOpen)}
+      {/* {!isConnected && ( */}
+      <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 w-full">
+        <Image src={logo} className="w-auto h-8 md:h-10" />
+        <div className="hidden md:flex md:space-x-4 md:mr-20">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <div className="w-6 h-px bg-white mb-1"></div>
-            <div className="w-6 h-px bg-white mb-1"></div>
-            <div className="w-6 h-px bg-white"></div>
-          </button>
-          {navTransition((style, item) =>
-            item ? (
-              <animated.div
-                style={style}
-                className="fixed inset-0 z-10 bg-black text-white flex flex-col items-center justify-center space-y-4"
-              >
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xl font-bold hover:text-gray-300"
-                >
-                  Twitter
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xl font-bold hover:text-gray-300"
-                >
-                  Twitter
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xl font-bold hover:text-gray-300"
-                >
-                  Twitter
-                </a>
-                <button
-                  className="absolute top-5 right-5 focus:outline-none"
-                  onClick={() => setIsNavOpen(false)}
-                >
-                  <AiOutlineClose className="text-2xl" />
-                </button>
-              </animated.div>
-            ) : null
-          )}
+            <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+          </a>
+          {/* Add other links here */}
         </div>
-      )}
-      ;
+        <button
+          className="md:hidden focus:outline-none"
+          onClick={() => setIsNavOpen(!isNavOpen)}
+        >
+          <div className="w-6 h-px bg-white mb-1"></div>
+          <div className="w-6 h-px bg-white mb-1"></div>
+          <div className="w-6 h-px bg-white"></div>
+        </button>
+        {navTransition((style, item) =>
+          item ? (
+            <animated.div
+              style={style}
+              className="fixed inset-0 z-10 bg-black text-white flex flex-col items-center justify-center space-y-4"
+            >
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl font-bold hover:text-gray-300"
+              >
+                Twitter
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl font-bold hover:text-gray-300"
+              >
+                Twitter
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl font-bold hover:text-gray-300"
+              >
+                Twitter
+              </a>
+              <button
+                className="absolute top-5 right-5 focus:outline-none"
+                onClick={() => setIsNavOpen(false)}
+              >
+                <AiOutlineClose className="text-2xl" />
+              </button>
+            </animated.div>
+          ) : null
+        )}
+      </div>
+      {/* )} */};
       <Head>
         <title>Claim Mona | Monaverse</title>
 

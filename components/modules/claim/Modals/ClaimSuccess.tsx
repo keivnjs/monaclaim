@@ -1,15 +1,15 @@
-import { Dialog, Transition } from '@headlessui/react'
-import Button from 'components/elements/Buttons'
-import React, { Fragment } from 'react'
+import { Dialog, Transition } from "@headlessui/react";
+import Button from "components/elements/Buttons";
+import React, { Fragment } from "react";
 
 interface Props {
-  closeModal: () => void,
-  isOpen: boolean,
-  address: string,
+  closeModal: () => void;
+  isOpen: boolean;
+  address: string;
 }
 
 export const ClaimSuccessModal: React.FC<Props> = (props) => {
-  const { isOpen, closeModal, address } = props
+  const { isOpen, closeModal, address } = props;
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -55,8 +55,10 @@ export const ClaimSuccessModal: React.FC<Props> = (props) => {
                 />
                 <div className="absolute bg-black/60 inset-8" />
                 <div className="relative p-0 sm:px-14 sm:py-12 text-2xl sm:text-[2.75rem] sm:leading-none font-bold sm:font-medium text-yellow-300 text-center uppercase z-30">
-                  <p>{"\"Congratulations!\""}</p>
-                  <p className="text-white text-3xl mt-4">{"You've claimed your voxel knights successfully!"}</p>
+                  <p>{'"Congratulations!"'}</p>
+                  <p className="text-white text-3xl mt-4">
+                    {"You've claimed your Mona successfully!"}
+                  </p>
                 </div>
               </div>
 
@@ -71,10 +73,18 @@ export const ClaimSuccessModal: React.FC<Props> = (props) => {
                 <Button
                   variant="primary"
                   className="!w-64"
-                  onClick={() => window.open(`https://opensea.io/${address}?search[resultModel]=ASSETS&search[sortBy]=LISTING_DATE&search[query]=Knights Game Voxel`, "_blank")}
+                  onClick={() =>
+                    window.open(
+                      `https://opensea.io/${address}?search[resultModel]=ASSETS&search[sortBy]=LISTING_DATE&search[query]=Knights Game Voxel`,
+                      "_blank"
+                    )
+                  }
                 >
                   <span>Look at OpenSea</span>
-                  <img src="/assets/icons/icon-opensea.png" className="w-6 h-6 ml-2" />
+                  <img
+                    src="/assets/icons/icon-opensea.png"
+                    className="w-6 h-6 ml-2"
+                  />
                 </Button>
               </div>
             </div>
@@ -82,5 +92,5 @@ export const ClaimSuccessModal: React.FC<Props> = (props) => {
         </div>
       </Dialog>
     </Transition>
-  )
-}
+  );
+};
