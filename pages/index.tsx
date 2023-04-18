@@ -27,7 +27,6 @@ import type {
 import { AiOutlineTwitter, AiOutlineClose } from "react-icons/ai";
 import { animated, useTransition } from "@react-spring/web";
 
-import logo from "public/assets/monaverse-logo.png";
 
 const Claim: NextPage = () => {
   const containerRef = useRef<any>(null);
@@ -173,30 +172,36 @@ const Claim: NextPage = () => {
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
       {/* {!isConnected && ( */}
       <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 w-full">
-        <Image src={logo} className="w-auto h-8 md:h-10" />
-        <div className="hidden md:flex md:space-x-4 md:mr-20">
+        <img src="/assets/MOBILE/logo.png" className="h-8" />
+        <div className="hidden md:flex md:space-x-2 md:mr-1">
           <a
-            href="https://twitter.com"
+            href="https://www.instagram.com/baslove.you/?igshid=Mzc1MmZhNjY%3D"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+            <img src="/assets/MOBILE/IG.png" className="w-auto h-10" />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://twitter.com/_____basloveyou?s=21"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+            <img src="/assets/MOBILE/TWITTER.png" className="w-auto h-10" />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://opensea.io/collection/monaverse"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <AiOutlineTwitter className="w-auto border-4 border-white h-10" />
+            <img src="/assets/MOBILE/OPENSEAB.png" className="w-auto h-10" />
           </a>
-          {/* Add other links here */}
+          <a
+            href="https://discord.gg/QW4TQKjR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/assets/MOBILE/DICORD.png" className="w-auto h-10" />
+          </a>
         </div>
         <button
           className="md:hidden focus:outline-none"
@@ -261,23 +266,27 @@ const Claim: NextPage = () => {
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
           <Image
-            src="/assets/cover_house-alt-2-0343dbcd09210d15bf8543e4d28b1c77.png"
+            src="/assets/MOBILE/BLANK-MAIN-1.png"
             layout="fill"
             objectFit="cover"
           />
         </div>
       </div>
-      {!isConnected && (
+      {/* {!isConnected && (
         <div className="absolute inset-0 z-20 w-full h-screen bg-white bg-opacity-50" />
-      )}
+      )} */}
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
-          <div className="h-screen w-full flex flex-col justify-center space-y-9">
-            <p className="text-3xl text-center text-yellow-600 font-bold">
-              Connect wallet to claim your MONA!
-            </p>
-            <div className="relative flex flex-col inset-x-0 justify-center items-center">
+          <div className="h-screen w-full flex flex-col justify-center items-center">
+            <img src="/assets/MOBILE/button.png" className="mx-auto w-1/2 relative z-0" />
+            <div className="relative flex flex-col justify-center items-center">
+            <img
+              src="/assets/PC/CONNECT-WALLET.png"
+              className="mx-auto w-80 h-auto z-20 -mt-80 ml-10"
+            />
+            <div className="absolute z-10 -mt-80 ml-10">
               <ConnectButton />
+            </div>
             </div>
           </div>
         )}
@@ -465,7 +474,7 @@ const Claim: NextPage = () => {
           </>
         )}
       </div>
-      <div className="absolute top-0 flex w-full min-h-screen">
+      {/* <div className="absolute top-0 flex w-full min-h-screen">
         <div className="speed-slow relative flex w-full">
           <div
             className={classNames(
@@ -517,7 +526,7 @@ const Claim: NextPage = () => {
       </div>
       <div className="fixed inset-0 min-h-screen w-full">
         <Image src="/assets/bg-sky.png" layout="fill" />
-      </div>
+      </div> */}
     </div>
   );
 };
