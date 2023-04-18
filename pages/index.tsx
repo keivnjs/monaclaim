@@ -346,6 +346,9 @@ const Claim: NextPage = () => {
               <Image src="/assets/MOBILE/BLANK-BRICK-1.png"
               layout="fill"
               objectFit="cover" />
+              <div className="absolute inset-0 flex justify-center items-center">
+              <div className="w-4/5 h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
+            </div>
             </div>
 
               <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
