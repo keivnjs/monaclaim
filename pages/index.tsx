@@ -351,14 +351,15 @@ const Claim: NextPage = () => {
             </div>
             </div>
 
-              <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
-                <button
-                  className="hover:-translate-y-px w-1/12 inset-2"
-                  onClick={() => prev()}
-                >
-                  <ArrowLeftIcon className="mx-auto w-14 h-14" />
-                </button>
-                <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
+            <div className="relative flex flex-col items-center w-10/12 mx-auto">
+  <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
+    <button
+      className="hover:-translate-y-px w-1/12 inset-2"
+      onClick={() => prev()}
+    >
+      <ArrowLeftIcon className="mx-auto w-14 h-14" />
+    </button>
+    <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
                   {!ownedMona.length && (
                     <div className="relative flex flex-col w-full items-center text-center">
                       <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
@@ -406,7 +407,7 @@ const Claim: NextPage = () => {
                 </button>
               </div>
 
-              <div className="relative flex items-center justify-between space-x-4 w-10/12 h-1/4 mx-auto">
+              <div className="flex items-center justify-between space-x-4 w-full h-1/4">
                 <Button
                   className="!w-44 h-14 text-lg"
                   onClick={() => handleSelectAll()}
@@ -426,6 +427,7 @@ const Claim: NextPage = () => {
                   Claim Selected ({getSelected().length})
                 </Button>
               </div>
+            </div>
             {/* </Card> */}
 
             {/* // Responsive */}
