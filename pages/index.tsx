@@ -42,6 +42,7 @@ const Claim: NextPage = () => {
   const [ownedMona, setOwnedMona] = useState<Array<number>>([]);
   const [claimStatus, setClaimStatus] = useState<Array<boolean>>([]);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const navTransition = useTransition(isNavOpen, {
     from: { opacity: 0, transform: "translateY(-100%)" },
@@ -258,11 +259,11 @@ const Claim: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <ClaimSuccessModal
+      {/* <ClaimSuccessModal
         isOpen={isModalOpen}
         closeModal={() => setIsModalOpen(false)}
         address={address}
-      />
+      /> */}
       {!isConnected && (
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
@@ -514,6 +515,24 @@ const Claim: NextPage = () => {
             </div>
           </>
         )}
+
+      {!!isSuccess && (
+        <div className="absolute h-screen w-screen">
+          <Image src="/assets/MOBILE/BLANK-BRICK-1.png"
+            layout="fill"
+            objectFit="cover" />
+            <div className="absolute inset-0 flex justify-center items-center">
+            <div className="w-4/5 h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
+          <div className="absolute inset-0 flex justify-center items-center flex-col">
+            <img src="/assets/MOBILE/CONGRATS.png" className="h-60 w-60" />
+            <div className="flex flex-wrap justify-center gap-4">
+              <img src="/assets/MOBILE/THANKS.png" className="h-40 w-40" onClick={() => setIsSuccess(false)} />
+              <img src="/assets/MOBILE/OPENSEA.png" className="h-40 w-40" />
+            </div>
+          </div>
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );
