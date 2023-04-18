@@ -523,11 +523,11 @@ const Claim: NextPage = () => {
             objectFit="cover" />
             <div className="absolute inset-0 flex justify-center items-center">
             <div className="w-4/5 h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
-          <div className="absolute inset-0 flex justify-center items-center flex-col">
-            <img src="/assets/MOBILE/CONGRATS.png" className="h-60 w-60" />
-            <div className="flex flex-wrap justify-center gap-4">
-              <img src="/assets/MOBILE/THANKS.png" className="h-40 w-40" onClick={() => setIsSuccess(false)} />
-              <img src="/assets/MOBILE/OPENSEA.png" className="h-40 w-40" />
+          <div className="absolute inset-0 flex justify-center items-center flex-col space-y-10">
+            <img src="/assets/MOBILE/CONGRATS.png" className="h-60 w-3/5" />
+            <div className="flex flex-wrap justify-center gap-10 space-x-4">
+              <img src="/assets/MOBILE/THANKS.png" className="w-3/12" onClick={() => setIsSuccess(false)} />
+              <img src="/assets/MOBILE/OPENSEA.png" className="w-3/12" />
             </div>
           </div>
           </div>
