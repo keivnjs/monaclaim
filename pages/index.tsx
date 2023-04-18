@@ -396,17 +396,6 @@ const Claim: NextPage = () => {
                           }}
                         />
                       ))}
-                    <div className="h-full justify-center items-center">
-                      <button className="cursor-pointer hover:brightness-105 active:brightness-95 hover:-translate-y-px disabled:grayscale disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:brightness-100 disabled:opacity-70"
-                      disabled={
-                        getSelected().length === 0 || getSelected().length % 2 !== 0
-                      }
-                      onClick={() => handleClaim()}
-                      // loading={isLoading}
-                      >
-                    <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-40" />
-                    </button>
-                    </div>
                     </div>
                   )}
                 </div>
@@ -416,6 +405,18 @@ const Claim: NextPage = () => {
                 >
                   <ArrowRightIcon className="mx-auto w-14 h-14" />
                 </button>
+              </div>
+
+              <div className="h-full justify-center items-center">
+                <button className="cursor-pointer hover:brightness-105 active:brightness-95 hover:-translate-y-px disabled:grayscale disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:brightness-100 disabled:opacity-70"
+                disabled={
+                  getSelected().length === 0 || getSelected().length % 2 !== 0
+                }
+                onClick={() => handleClaim()}
+                // loading={isLoading}
+                >
+              <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-40" />
+              </button>
               </div>
             </div>
             {/* </Card> */}
