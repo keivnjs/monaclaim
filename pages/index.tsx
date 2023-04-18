@@ -272,21 +272,59 @@ const Claim: NextPage = () => {
           />
         </div>
       </div>
-      {/* {!isConnected && (
-        <div className="absolute inset-0 z-20 w-full h-screen bg-white bg-opacity-50" />
-      )} */}
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center items-center">
             <img src="/assets/MOBILE/button.png" className="mx-auto w-1/2 relative z-0" />
-            <div className="relative flex flex-col justify-center items-center">
-            <img
-              src="/assets/PC/CONNECT-WALLET.png"
-              className="mx-auto w-80 h-auto z-20 -mt-80 ml-10"
-            />
-            <div className="absolute z-10 -mt-80 ml-10">
-              <ConnectButton />
-            </div>
+            <div className="absolute flex flex-col justify-center items-center -mb-36 ml-10">
+            
+            <ConnectButton.Custom>
+              {({
+                account,
+                chain,
+                openChainModal,
+                openConnectModal,
+                mounted,
+              }) => {
+                const ready = mounted;
+                const connected = ready && account && chain;
+
+                return (
+                  <>
+                    {(() => {
+                      if (!connected) {
+                        return (
+                          <div
+                            {...(!ready && {
+                              "aria-hidden": true,
+                              style: {
+                                opacity: 0,
+                                pointerEvents: "none",
+                                userSelect: "none",
+                              },
+                            })}
+                          >
+                            <img
+                            onClick={openConnectModal}
+                            src="/assets/PC/CONNECT-WALLET.png"
+                            className="mx-auto w-80 h-auto cursor-pointer hover:-translate-y-1 transition"
+                          />
+                          </div>
+                        );
+                      }
+
+                      if (chain.unsupported) {
+                        return (
+                          <button onClick={openChainModal} type="button">
+                            Wrong network
+                          </button>
+                        );
+                      }
+                    })()}
+                  </>
+                );
+              }}
+            </ConnectButton.Custom>
             </div>
           </div>
         )}
@@ -474,59 +512,6 @@ const Claim: NextPage = () => {
           </>
         )}
       </div>
-      {/* <div className="absolute top-0 flex w-full min-h-screen">
-        <div className="speed-slow relative flex w-full">
-          <div
-            className={classNames(
-              "absolute bottom-0 h-[95vh] w-[300vw] sm:w-[200vw] lg:w-[100vw]",
-              "z-[2] left-[0vw]"
-            )}
-          >
-            <div className="relative h-full w-full">
-              <Image
-                src="/assets/cloud.png"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="speed-slow relative flex w-full">
-          <div
-            className={classNames(
-              "absolute bottom-0 h-[95vh] w-[300vw] sm:w-[200vw] lg:w-[100vw]",
-              "z-[2] left-[100vw]"
-            )}
-          >
-            <div className="relative h-full w-full">
-              <Image
-                src="/assets/cloud.png"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="speed-slow relative flex w-full">
-          <div
-            className={classNames(
-              "absolute bottom-0 h-[95vh] w-[300vw] sm:w-[200vw] lg:w-[100vw]",
-              "z-[2] left-[200vw]"
-            )}
-          >
-            <div className="relative h-full w-full">
-              <Image
-                src="/assets/cloud.png"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="fixed inset-0 min-h-screen w-full">
-        <Image src="/assets/bg-sky.png" layout="fill" />
-      </div> */}
     </div>
   );
 };
