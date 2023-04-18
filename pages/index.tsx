@@ -263,6 +263,7 @@ const Claim: NextPage = () => {
         closeModal={() => setIsModalOpen(false)}
         address={address}
       />
+      {!isConnected && (
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
           <Image
@@ -272,6 +273,7 @@ const Claim: NextPage = () => {
           />
         </div>
       </div>
+      )};
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center items-center">
@@ -327,17 +329,24 @@ const Claim: NextPage = () => {
             </ConnectButton.Custom>
             </div>
           </div>
+          
         )}
 
         {isConnected && (
           <>
-            <Card className="hidden sm:block lg:h-2/3 lg:max-h-[34.75rem]">
-              <div className="relative w-full h-1/4 mb-4">
+            {/* <Card className="hidden sm:block lg:h-2/3 lg:max-h-[34.75rem]"> */}
+              {/* <div className="relative w-full h-1/4 mb-4">
                 <img
                   src="/assets/monaverse.png"
                   className="absolute inset-0 h-full w-full object-scale-down mt-4"
                 />
-              </div>
+              </div> */}
+
+            <div className="absolute h-screen w-screen">
+              <Image src="/assets/MOBILE/BLANK-BRICK-1.png"
+              layout="fill"
+              objectFit="cover" />
+            </div>
 
               <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
                 <button
@@ -347,10 +356,6 @@ const Claim: NextPage = () => {
                   <ArrowLeftIcon className="mx-auto w-14 h-14" />
                 </button>
                 <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
-                  {/* <img
-                  src="/assets/containers/inner-board-lg.png"
-                  className="absolute inset-0 h-full w-full"
-                /> */}
                   {!ownedMona.length && (
                     <div className="relative flex flex-col w-full items-center text-center">
                       <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
@@ -418,7 +423,7 @@ const Claim: NextPage = () => {
                   Claim Selected ({getSelected().length})
                 </Button>
               </div>
-            </Card>
+            {/* </Card> */}
 
             {/* // Responsive */}
             <div className="block sm:hidden lg:h-2/3 lg:max-h-[34.75rem]">
