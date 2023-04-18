@@ -526,7 +526,7 @@ const Claim: NextPage = () => {
           <div className="absolute inset-0 flex justify-center items-center flex-col space-y-10">
             <img src="/assets/MOBILE/CONGRATS.png" className="h-60 w-3/5" />
             <div className="flex flex-wrap justify-center gap-10 space-x-4">
-              <img src="/assets/MOBILE/THANKS.png" className="w-3/12" onClick={() => setIsSuccess(false)} />
+              <img src="/assets/MOBILE/THANKS.png" className="w-3/12 cursor-pointer" onClick={() => setIsSuccess(false)} />
               <img src="/assets/MOBILE/OPENSEA.png" className="w-3/12" />
             </div>
           </div>
