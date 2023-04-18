@@ -407,6 +407,7 @@ const Claim: NextPage = () => {
                 </button>
               </div>
 
+              {!!ownedMona.length && (
               <div className="h-full justify-center items-center">
                 <button className="cursor-pointer hover:brightness-105 active:brightness-95 hover:-translate-y-px disabled:grayscale disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:brightness-100 disabled:opacity-70"
                 disabled={
@@ -418,6 +419,7 @@ const Claim: NextPage = () => {
               <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-40" />
               </button>
               </div>
+              )}
             </div>
             {/* </Card> */}
 
