@@ -431,7 +431,7 @@ const Claim: NextPage = () => {
             {/* </Card> */}
 
             {/* // Responsive */}
-            <div className="block sm:hidden lg:h-2/3 lg:max-h-[34.75rem]">
+            {/* <div className="block sm:hidden lg:h-2/3 lg:max-h-[34.75rem]">
               <div className="flex flex-col px-4 mx-auto">
                 <img
                   src="/assets/monaverse.png"
@@ -518,7 +518,7 @@ const Claim: NextPage = () => {
                   Claim Selected ({getSelected().length})
                 </Button>
               </div>
-            </div>
+            </div> */}
           </>
         )}
 
