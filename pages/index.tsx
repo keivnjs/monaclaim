@@ -409,7 +409,15 @@ const Claim: NextPage = () => {
               </div>
 
               {!!ownedMona.length && (
-              <div className="h-full justify-center items-center">
+              <div className="flex flex-col justify-center items-center space-y-10">
+                <button
+                  className="cursor-pointer md:hidden"
+                  onClick={() => handleSelectAll()}
+                >
+                <img src="/assets/MOBILE/SELECT-ALL.png" className="h-3 justify-center items-center " />
+                  {!selectedAll}
+                  {selectedAll}
+                </button>
                 <button className="cursor-pointer hover:brightness-105 active:brightness-95 hover:-translate-y-px disabled:grayscale disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:brightness-100 disabled:opacity-70"
                 disabled={
                   getSelected().length === 0 || getSelected().length % 2 !== 0
@@ -422,7 +430,7 @@ const Claim: NextPage = () => {
                     <Spinner className="w-10 h-10 mr-2 text-white" />
                   </div>
                 ) : (
-              <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-40" />
+              <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-24 md:h-40 sm:h-32" />
                 )}
               </button>
               </div>
