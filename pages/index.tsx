@@ -322,7 +322,7 @@ const Claim: NextPage = () => {
               layout="fill"
               objectFit="cover" />
               <div className="absolute inset-0 flex justify-center items-center">
-              <div className="w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
+              <div className="w-10/12 sm:w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
             </div>
             </div>
 
@@ -332,7 +332,7 @@ const Claim: NextPage = () => {
                 className="hover:-translate-y-px w-1/12 inset-2"
                 onClick={() => prev()}
               >
-                <img src="/assets/MOBILE/ARROW-KIRI.png" className="mx-auto w-14 h-14" />
+                <img src="/assets/MOBILE/ARROW-KIRI.png" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
               </button>
               <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
                   {!ownedMona.length && (
@@ -378,7 +378,7 @@ const Claim: NextPage = () => {
                   className="hover:-translate-y-px w-1/12 inset-2"
                   onClick={() => next()}
                 >
-                  <img src="/assets/MOBILE/ARROW-KANAN.png" className="mx-auto w-14 h-14" />
+                  <img src="/assets/MOBILE/ARROW-KANAN.png" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
                 </button>
               </div>
 
