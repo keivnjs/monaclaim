@@ -171,7 +171,8 @@ const Claim: NextPage = () => {
 
   return (
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
-      {/* {!isConnected && ( */}
+
+      {/* Header */}
       <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 w-full">
         <img src="/assets/MOBILE/logo.png" className="h-8" />
         <div className="hidden md:flex md:space-x-2 md:mr-1">
@@ -204,55 +205,39 @@ const Claim: NextPage = () => {
             <img src="/assets/MOBILE/DICORD.png" className="w-auto h-10" />
           </a>
         </div>
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setIsNavOpen(!isNavOpen)}
-        >
-          <div className="w-6 h-px bg-white mb-1"></div>
-          <div className="w-6 h-px bg-white mb-1"></div>
-          <div className="w-6 h-px bg-white"></div>
-        </button>
-        {navTransition((style, item) =>
-          item ? (
-            <animated.div
-              style={style}
-              className="fixed inset-0 z-10 bg-black text-white flex flex-col items-center justify-center space-y-4"
-            >
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl font-bold hover:text-gray-300"
-              >
-                Twitter
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl font-bold hover:text-gray-300"
-              >
-                Twitter
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl font-bold hover:text-gray-300"
-              >
-                Twitter
-              </a>
-              <button
-                className="absolute top-5 right-5 focus:outline-none"
-                onClick={() => setIsNavOpen(false)}
-              >
-                <AiOutlineClose className="text-2xl" />
-              </button>
-            </animated.div>
-          ) : null
-        )}
+
+        {/* Footer */}
+        <div className="fixed bottom-0 left-0 w-full md:hidden flex justify-center py-4 space-x-3 bg-black">
+        <a
+            href="https://www.instagram.com/baslove.you/?igshid=Mzc1MmZhNjY%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/assets/MOBILE/IG.png" className="w-auto h-10" />
+          </a>
+          <a
+            href="https://twitter.com/_____basloveyou?s=21"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/assets/MOBILE/TWITTER.png" className="w-auto h-10" />
+          </a>
+          <a
+            href="https://opensea.io/collection/monaverse"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/assets/MOBILE/OPENSEAB.png" className="w-auto h-10" />
+          </a>
+          <a
+            href="https://discord.gg/QW4TQKjR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/assets/MOBILE/DICORD.png" className="w-auto h-10" />
+          </a>
+        </div>
       </div>
-      {/* )} */};
       <Head>
         <title>Claim Mona | Monaverse</title>
 
@@ -335,14 +320,6 @@ const Claim: NextPage = () => {
 
         {isConnected && (
           <>
-            {/* <Card className="hidden sm:block lg:h-2/3 lg:max-h-[34.75rem]"> */}
-              {/* <div className="relative w-full h-1/4 mb-4">
-                <img
-                  src="/assets/monaverse.png"
-                  className="absolute inset-0 h-full w-full object-scale-down mt-4"
-                />
-              </div> */}
-
             <div className="absolute h-screen w-screen">
               <Image src="/assets/MOBILE/BLANK-BRICK-1.png"
               layout="fill"
@@ -436,97 +413,7 @@ const Claim: NextPage = () => {
               </div>
               )}
             </div>
-            {/* </Card> */}
-
-            {/* // Responsive */}
-            {/* <div className="block sm:hidden lg:h-2/3 lg:max-h-[34.75rem]">
-              <div className="flex flex-col px-4 mx-auto">
-                <img
-                  src="/assets/monaverse.png"
-                  className="mx-auto h-50 w-50 mt-1 object-scale-down"
-                />
-              </div>
-              <div className="flex justify-center mb-10">
-                <div className="flex items-center relative">
-                  <button
-                    className="relative left-0 transition-all transform hover:translate-x-1 hover:shadow-2xl hover:shadow-yellow-900"
-                    onClick={prevSlide}
-                  >
-                    <ArrowLeftIcon className="w-14 h-14 sm:w-14 sm:h-14" />
-                  </button>
-                  <div className="flex-col">
-                    {!ownedMona.length && (
-                      <div className="relative flex flex-col w-full items-center text-center">
-                        <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
-                        <a
-                          href="https://opensea.io/collection/monaverse"
-                          target="_blank"
-                        >
-                          <Button
-                            className="!w-60 h-14 mt-4"
-                            variant="secondary"
-                          >
-                            <span> Buy on Opensea </span>
-                            <img
-                              src="/assets/icons/icon-opensea.png"
-                              className="w-6 h-6 ml-2"
-                            />
-                          </Button>
-                        </a>
-                      </div>
-                    )}
-                    {!!ownedMona.length && (
-                      <div className="flex items-center justify-center">
-                        {ownedMona.map(
-                          (item, index) =>
-                            index === current && (
-                              <MonaCard
-                                key={+item}
-                                tokenId={+item}
-                                isSelected={selected[item]}
-                                isClaimed={claimStatus[index]}
-                                onClick={() => {
-                                  setSelectedAll(false);
-                                  setSelected((prev: any) => {
-                                    return { ...prev, [item]: !selected[item] };
-                                  });
-                                }}
-                              />
-                            )
-                        )}
-                      </div>
-                    )}
-                  </div>
-
-                  <button
-                    className="relative right-0 transition-all transform hover:translate-x-1 hover:shadow-2xl hover:shadow-yellow-900"
-                    onClick={nextSlide}
-                  >
-                    <ArrowRightIcon className="mx-auto w-14 h-14" />
-                  </button>
-                </div>
-              </div>
-              <div className="relative flex items-center justify-between space-x-4 w-10/12 h-1/4 mx-auto">
-                <Button
-                  className="!w-44 h-14 text-lg"
-                  onClick={() => handleSelectAll()}
-                  variant="secondary"
-                >
-                  {!selectedAll && "Select All"}
-                  {selectedAll && "Unselect All"}
-                </Button>
-                <Button
-                  className="!w-56 h-14 text-lg"
-                  disabled={
-                    getSelected().length === 0 || getSelected().length % 2 !== 0
-                  }
-                  onClick={() => handleClaim()}
-                  loading={isLoading}
-                >
-                  Claim Selected ({getSelected().length})
-                </Button>
-              </div>
-            </div> */}
+            
           </>
         )}
 
