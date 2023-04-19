@@ -174,7 +174,7 @@ const Claim: NextPage = () => {
 
       {/* Header */}
       <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 w-full">
-        <img src="/assets/MOBILE/logo.png" className="h-8 sm:h-20 mx-auto" />
+        <img src="/assets/MOBILE/logo.png" className="h-8 sm:h-8" />
         <div className="hidden md:flex md:space-x-2 md:mr-1">
           <a
             href="https://www.instagram.com/baslove.you/?igshid=Mzc1MmZhNjY%3D"
@@ -238,17 +238,14 @@ const Claim: NextPage = () => {
           </a>
         </div>
       </div>
+      
       <Head>
         <title>Claim Mona | Monaverse</title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      {/* <ClaimSuccessModal
-        isOpen={isModalOpen}
-        closeModal={() => setIsModalOpen(false)}
-        address={address}
-      /> */}
+
       {!isConnected && (
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative w-full h-full">
@@ -400,7 +397,6 @@ const Claim: NextPage = () => {
                   getSelected().length === 0 || getSelected().length % 2 !== 0
                 }
                 onClick={() => handleClaim()}
-                // loading={isLoading}
                 >
                   {isLoading ? (
                     <div className="flex justify-center items-center w-full h-full">
@@ -459,10 +455,7 @@ const MonaCard: React.FC<MonaCardProps> = (props) => {
       disabled={isClaimed}
       {...rest}
     >
-      {/* <img
-        src="/assets/borders/card-frame.png"
-        className="absolute inset-0 h-full w-full group-hover:brightness-125"
-      /> */}
+     
       <img
         src={
           tokenId === 10
