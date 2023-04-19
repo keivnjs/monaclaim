@@ -154,7 +154,7 @@ const Claim: NextPage = () => {
       .then((response) => {
         setClaimStatus(response);
       });
-  }, [claimStatus]);
+  }, [ownedMona]);
 
   useEffect(() => {
     if (isConnected) {
@@ -353,14 +353,14 @@ const Claim: NextPage = () => {
             </div>
 
             <div className="relative flex flex-col items-center w-10/12 mx-auto">
-  <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
-    <button
-      className="hover:-translate-y-px w-1/12 inset-2"
-      onClick={() => prev()}
-    >
-      <ArrowLeftIcon className="mx-auto w-14 h-14" />
-    </button>
-    <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
+            <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
+              <button
+                className="hover:-translate-y-px w-1/12 inset-2"
+                onClick={() => prev()}
+              >
+                <ArrowLeftIcon className="mx-auto w-14 h-14" />
+              </button>
+              <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
                   {!ownedMona.length && (
                     <div className="relative flex flex-col w-full items-center text-center">
                       <p className="text-2xl font-sans">{`You don't have any Mona :(`}</p>
@@ -417,7 +417,13 @@ const Claim: NextPage = () => {
                 onClick={() => handleClaim()}
                 // loading={isLoading}
                 >
+                  {isLoading ? (
+                    <div className="flex justify-center items-center w-full h-full">
+                    <Spinner className="w-10 h-10 mr-2 text-white" />
+                  </div>
+                ) : (
               <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-40" />
+                )}
               </button>
               </div>
               )}
