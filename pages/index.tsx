@@ -107,7 +107,7 @@ const Claim: NextPage = () => {
   };
 
   const prev = () => {
-    const numItemsToScroll = window.innerWidth < 768 ? 1 : 3; 
+    const numItemsToScroll = window.innerWidth < 768 ? 1 : 1; 
     scrollState.scroller.scrollBy({
       left: -scrollState.itemWidth * numItemsToScroll,
       top: 0,
@@ -117,7 +117,7 @@ const Claim: NextPage = () => {
   };
   
   const next = () => {
-    const numItemsToScroll = window.innerWidth < 768 ? 1 : 3;
+    const numItemsToScroll = window.innerWidth < 768 ? 1 : 1;
     scrollState.scroller.scrollBy({
       left: scrollState.itemWidth * numItemsToScroll,
       top: 0,
