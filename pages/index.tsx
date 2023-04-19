@@ -322,7 +322,7 @@ const Claim: NextPage = () => {
               layout="fill"
               objectFit="cover" />
               <div className="absolute inset-0 flex justify-center items-center">
-              <div className="w-4/5 h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
+              <div className="w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
             </div>
             </div>
 
@@ -383,7 +383,7 @@ const Claim: NextPage = () => {
               </div>
 
               {!!ownedMona.length && (
-              <div className="flex flex-col justify-center items-center space-y-10">
+              <div className="flex flex-col justify-center items-center space-y-10 mb-20">
                 <button
                   className="cursor-pointer md:hidden"
                   onClick={() => handleSelectAll()}
@@ -403,7 +403,7 @@ const Claim: NextPage = () => {
                     <Spinner className="w-10 h-10 mr-2 text-white" />
                   </div>
                 ) : (
-              <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-24 md:h-40 sm:h-32" />
+              <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-16 md:h-40 sm:h-32" />
                 )}
               </button>
               </div>
@@ -449,7 +449,7 @@ const MonaCard: React.FC<MonaCardProps> = (props) => {
       className={classNames(
         isSelected && "ring-2 ring-yellow-200 shadow-glow",
         "disabled:grayscale disabled:cursor-not-allowed",
-        "group snap-center flex-none relative w-72 h-72 rounded-lg cursor-pointer transition",
+        "group snap-center flex-none relative w-60 h-60 sm:w-72 sm:h-72 rounded-lg cursor-pointer transition",
         "first:ml-6 last:mr-6"
       )}
       disabled={isClaimed}
