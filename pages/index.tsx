@@ -558,10 +558,10 @@ const MonaCard: React.FC<MonaCardProps> = (props) => {
       disabled={isClaimed}
       {...rest}
     >
-      <img
+      {/* <img
         src="/assets/borders/card-frame.png"
         className="absolute inset-0 h-full w-full group-hover:brightness-125"
-      />
+      /> */}
       <img
         src={
           tokenId === 10
