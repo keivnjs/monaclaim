@@ -358,7 +358,7 @@ const Claim: NextPage = () => {
                 className="hover:-translate-y-px w-1/12 inset-2"
                 onClick={() => prev()}
               >
-                <ArrowLeftIcon className="mx-auto w-14 h-14" />
+                <img src="/assets/MOBILE/ARROW-KIRI.png" className="mx-auto w-14 h-14" />
               </button>
               <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
                   {!ownedMona.length && (
@@ -404,7 +404,7 @@ const Claim: NextPage = () => {
                   className="hover:-translate-y-px w-1/12 inset-2"
                   onClick={() => next()}
                 >
-                  <ArrowRightIcon className="mx-auto w-14 h-14" />
+                  <img src="/assets/MOBILE/ARROW-KANAN.png" className="mx-auto w-14 h-14" />
                 </button>
               </div>
 
@@ -558,7 +558,7 @@ const MonaCard: React.FC<MonaCardProps> = (props) => {
       className={classNames(
         isSelected && "ring-2 ring-yellow-200 shadow-glow",
         "disabled:grayscale disabled:cursor-not-allowed",
-        "group snap-center flex-none relative w-44 h-44 rounded-lg cursor-pointer transition",
+        "group snap-center flex-none relative w-72 h-72 rounded-lg cursor-pointer transition",
         "first:ml-6 last:mr-6"
       )}
       disabled={isClaimed}
