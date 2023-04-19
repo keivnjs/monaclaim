@@ -106,27 +106,26 @@ const Claim: NextPage = () => {
       });
   };
 
-  const next = () => {
-    scrollState.scroller.scrollBy({
-      left: scrollState.itemWidth * 3,
-      top: 0,
-      behavior: "smooth",
-    });
-
-    // Hide if is the last item
-    setScrollState({ ...scrollState, isNextHidden: true, isPrevHidden: false });
-  };
-
   const prev = () => {
+    const numItemsToScroll = window.innerWidth < 768 ? 1 : 3; 
     scrollState.scroller.scrollBy({
-      left: -scrollState.itemWidth * 3,
+      left: -scrollState.itemWidth * numItemsToScroll,
       top: 0,
       behavior: "smooth",
     });
     setScrollState({ ...scrollState, isNextHidden: false, isPrevHidden: true });
-    // Hide if is the last item
-    // Show remaining
   };
+  
+  const next = () => {
+    const numItemsToScroll = window.innerWidth < 768 ? 1 : 3;
+    scrollState.scroller.scrollBy({
+      left: scrollState.itemWidth * numItemsToScroll,
+      top: 0,
+      behavior: "smooth",
+    });
+    setScrollState({ ...scrollState, isPrevHidden: false, isNextHidden: true });
+  };
+  
 
   const nextSlide = () => {
     setCurrent(current === ownedMona.length - 1 ? 0 : current + 1);
