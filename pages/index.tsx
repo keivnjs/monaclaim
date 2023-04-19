@@ -172,7 +172,7 @@ const Claim: NextPage = () => {
     <div className="relative h-screen max-h-screen w-full overflow-hidden">
 
       {/* Header */}
-      <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 w-full">
+      <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-center sm:justify-between px-4 md:px-12 py-3 md:py-5 w-full">
         <img src="/assets/MOBILE/logo.png" className="h-8 sm:h-8" />
         <div className="hidden md:flex md:space-x-2 md:mr-1">
           <a
