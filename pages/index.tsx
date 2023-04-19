@@ -174,7 +174,7 @@ const Claim: NextPage = () => {
 
       {/* Header */}
       <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-between px-4 md:px-12 py-3 md:py-5 w-full">
-        <img src="/assets/MOBILE/logo.png" className="h-8" />
+        <img src="/assets/MOBILE/logo.png" className="h-8 sm:h-20 mx-auto" />
         <div className="hidden md:flex md:space-x-2 md:mr-1">
           <a
             href="https://www.instagram.com/baslove.you/?igshid=Mzc1MmZhNjY%3D"
