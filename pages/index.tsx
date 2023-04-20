@@ -245,6 +245,7 @@ const Claim: NextPage = () => {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
+      
       {!isConnected && (
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative max-w-full h-full sm:max-w-none sm:h-full">
@@ -412,7 +413,7 @@ const Claim: NextPage = () => {
           </>
         )}
 
-      {!!isSuccess && (
+      {/* {!!isSuccess && (
         <div className="absolute h-screen w-screen">
           <Image src="/assets/MOBILE/BLANK-BRICK-1.png"
             layout="fill"
@@ -428,7 +429,12 @@ const Claim: NextPage = () => {
           </div>
           </div>
         </div>
-      )}
+      )} */}
+      <ClaimSuccessModal
+        isOpen={isModalOpen}
+        closeModal={() => setIsModalOpen(false)}
+        // address={accounts[0]}
+      />
       <div className="fixed bottom-16 sm:bottom-0 left-0 p-2">
         <p className="text-sm text-white">&copy; 2023 Monaverse. All Rights Reserved</p>
       </div>
