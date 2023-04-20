@@ -173,35 +173,35 @@ const Claim: NextPage = () => {
 
       {/* Header */}
       <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-center sm:justify-between px-4 md:px-12 py-3 md:py-5 w-full">
-        <img src="/assets/MOBILE/logo.png" className="h-8 sm:h-8" />
+        <img src="/assets/MOBILE/logo.webp" className="h-8 sm:h-8" />
         <div className="hidden md:flex md:space-x-2 md:mr-1">
           <a
             href="https://www.instagram.com/baslove.you/?igshid=Mzc1MmZhNjY%3D"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/IG.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/IG.webp" className="w-auto h-10" />
           </a>
           <a
             href="https://twitter.com/_____basloveyou?s=21"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/TWITTER.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/TWITTER.webp" className="w-auto h-10" />
           </a>
           <a
             href="https://opensea.io/collection/monaverse"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/OPENSEAB.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/OPENSEAB.webp" className="w-auto h-10" />
           </a>
           <a
             href="https://discord.gg/QW4TQKjR"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/DICORD.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/DICORD.webp" className="w-auto h-10" />
           </a>
         </div>
 
@@ -212,28 +212,28 @@ const Claim: NextPage = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/IG.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/IG.webp" className="w-auto h-10" />
           </a>
           <a
             href="https://twitter.com/_____basloveyou?s=21"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/TWITTER.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/TWITTER.webp" className="w-auto h-10" />
           </a>
           <a
             href="https://opensea.io/collection/monaverse"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/OPENSEAB.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/OPENSEAB.webp" className="w-auto h-10" />
           </a>
           <a
             href="https://discord.gg/QW4TQKjR"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/DICORD.png" className="w-auto h-10" />
+            <img src="/assets/MOBILE/DICORD.webp" className="w-auto h-10" />
           </a>
         </div>
       </div>
@@ -250,7 +250,7 @@ const Claim: NextPage = () => {
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
         <div className="relative max-w-full h-full sm:max-w-none sm:h-full">
           <Image
-            src="/assets/MOBILE/BLANK-MAIN-1.png"
+            src="/assets/MOBILE/BLANK-MAIN-1.webp"
             layout="fill"
             objectFit="cover"
           />
@@ -260,7 +260,7 @@ const Claim: NextPage = () => {
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center items-center">
-            <img src="/assets/MOBILE/button.png" className="mx-auto w-full sm:w-1/2 relative z-0" />
+            <img src="/assets/MOBILE/button.webp" className="mx-auto w-full sm:w-1/2 relative z-0" />
             <div className="absolute flex flex-col justify-center items-center -mb-36 ml-10">
             
             <ConnectButton.Custom>
@@ -291,7 +291,7 @@ const Claim: NextPage = () => {
                           >
                             <img
                             onClick={openConnectModal}
-                            src="/assets/PC/CONNECT-WALLET.png"
+                            src="/assets/PC/CONNECT-WALLET.webp"
                             className="mx-auto w-72 sm:w-80 mb-5 sm:mb-0 h-auto cursor-pointer hover:-translate-y-1 transition"
                           />
                           </div>
@@ -318,7 +318,7 @@ const Claim: NextPage = () => {
         {isConnected && (
           <>
             <div className="absolute h-screen w-screen">
-              <Image src="/assets/MOBILE/BLANK-BRICK-1.png"
+              <Image src="/assets/MOBILE/BLANK-BRICK-1.webp"
               layout="fill"
               objectFit="cover" />
               <div className="absolute inset-0 flex justify-center items-center">
@@ -332,7 +332,7 @@ const Claim: NextPage = () => {
                 className="hover:-translate-y-px w-1/12 inset-2"
                 onClick={() => prev()}
               >
-                <img src="/assets/MOBILE/ARROW-KIRI.png" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
+                <img src="/assets/MOBILE/ARROW-KIRI.webp" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
               </button>
               <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
                   {!ownedMona.length && (
@@ -345,7 +345,7 @@ const Claim: NextPage = () => {
                         <Button className="!w-60 h-14 mt-4" variant="secondary">
                           <span> Buy on Opensea </span>
                           <img
-                            src="/assets/icons/icon-opensea.png"
+                            src="/assets/icons/icon-opensea.webp"
                             className="w-6 h-6 ml-2"
                           />
                         </Button>
@@ -378,7 +378,7 @@ const Claim: NextPage = () => {
                   className="hover:-translate-y-px w-1/12 inset-2"
                   onClick={() => next()}
                 >
-                  <img src="/assets/MOBILE/ARROW-KANAN.png" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
+                  <img src="/assets/MOBILE/ARROW-KANAN.webp" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
                 </button>
               </div>
 
@@ -388,7 +388,7 @@ const Claim: NextPage = () => {
                   className="cursor-pointer md:hidden"
                   onClick={() => handleSelectAll()}
                 >
-                <img src="/assets/MOBILE/SELECT-ALL.png" className="h-3 justify-center items-center " />
+                <img src="/assets/MOBILE/SELECT-ALL.webp" className="h-3 justify-center items-center " />
                   {!selectedAll}
                   {selectedAll}
                 </button>
@@ -403,7 +403,7 @@ const Claim: NextPage = () => {
                     <Spinner className="w-10 h-10 mr-2 text-white" />
                   </div>
                 ) : (
-              <img src="/assets/MOBILE/CLAIM-NOW.png" alt="Claim Button" className="h-16 md:h-40 sm:h-32" />
+              <img src="/assets/MOBILE/CLAIM-NOW.webp" alt="Claim Button" className="h-16 md:h-40 sm:h-32" />
                 )}
               </button>
               </div>

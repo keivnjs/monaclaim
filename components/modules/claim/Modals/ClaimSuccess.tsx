@@ -34,7 +34,7 @@ export const ClaimSuccessModal: React.FC<Props> = (props) => {
             <div className="absolute inset-0 flex justify-center items-center">
             <div className="w-10/12 sm:w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg"></div>
           <div className="absolute inset-0 flex justify-center items-center flex-col space-y-10">
-            <img src="/assets/MOBILE/CONGRATS.png" className="h-30 w-3/4 sm:h-60 sm:w-3/5" />
+            <img src="/assets/MOBILE/CONGRATS.webp" className="h-30 w-3/4 sm:h-60 sm:w-3/5" />
             <div className="flex flex-col sm:flex-row justify-center items-center gap-5 sm:gap-10 space-x-4 ">
               <img src="/assets/MOBILE/THANKS.png" className="w-8/12 sm:w-3/12 cursor-pointer" onClick={closeModal} />
               <img src="/assets/MOBILE/OPENSEA.png" className="w-9/12 sm:w-3/12 cursor-pointer"  />
