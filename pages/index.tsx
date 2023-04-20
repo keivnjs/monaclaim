@@ -429,6 +429,9 @@ const Claim: NextPage = () => {
           </div>
         </div>
       )}
+      <div className="fixed bottom-0 left-0 p-2">
+        <p className="text-sm text-white">&copy; 2023 Monaverse. All Rights Reserved</p>
+      </div>
       </div>
     </div>
   );
