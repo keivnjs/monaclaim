@@ -247,7 +247,7 @@ const Claim: NextPage = () => {
 
       {!isConnected && (
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
-        <div className="relative w-full h-full">
+        <div className="relative max-w-full h-full sm:max-w-none sm:h-full">
           <Image
             src="/assets/MOBILE/BLANK-MAIN-1.png"
             layout="fill"
@@ -259,7 +259,7 @@ const Claim: NextPage = () => {
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center items-center">
-            <img src="/assets/MOBILE/button.png" className="mx-auto w-1/2 relative z-0" />
+            <img src="/assets/MOBILE/button.png" className="mx-auto w-full sm:w-1/2 relative z-0" />
             <div className="absolute flex flex-col justify-center items-center -mb-36 ml-10">
             
             <ConnectButton.Custom>
@@ -291,7 +291,7 @@ const Claim: NextPage = () => {
                             <img
                             onClick={openConnectModal}
                             src="/assets/PC/CONNECT-WALLET.png"
-                            className="mx-auto w-80 h-auto cursor-pointer hover:-translate-y-1 transition"
+                            className="mx-auto w-72 sm:w-80 mb-5 sm:mb-0 h-auto cursor-pointer hover:-translate-y-1 transition"
                           />
                           </div>
                         );
