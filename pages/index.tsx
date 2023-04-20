@@ -326,7 +326,7 @@ const Claim: NextPage = () => {
             </div>
 
             <div className="relative flex flex-col items-center w-10/12 mx-auto">
-            <div className="relative flex mb-2 items-center space-x-4 text-white w-full h-2/4">
+            <div className="relative flex mb-2 items-center space-x-0 text-white w-full h-2/4">
               <button
                 className="hover:-translate-y-px w-1/12 inset-2"
                 onClick={() => prev()}
