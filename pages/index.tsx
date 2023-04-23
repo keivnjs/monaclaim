@@ -346,7 +346,9 @@ const Claim: NextPage = () => {
                         <img src="/assets/MOBILE/DONAT-HAVE-MONA.webp" className="h-30 w-3/4 sm:h-11/12 sm:w-11/12" />
                         <button 
                           className=" mt-4 px-4 right-0">
-                          <img src="/assets/MOBILE/BUY-NOW.webp" className=" items-right justify-end right-0 w-1/2" />
+                            <a href="https://www.opensea.io" target="_blank" rel="noopener noreferrer">
+                              <img src="/assets/MOBILE/BUY-NOW.webp" className="items-right justify-end right-0 w-1/2" />
+                            </a>
                         </button>
                       </div>
                       </div>
