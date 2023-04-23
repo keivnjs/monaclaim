@@ -328,19 +328,25 @@ const Claim: NextPage = () => {
 
             <div className="relative flex flex-col items-center w-10/12 mx-auto">
             <div className="relative flex mb-2 items-center space-x-[-5px] sm:space-x-0 text-white w-full h-2/4">
-              <button
-                className="hover:-translate-y-px w-1/12 inset-2"
-                onClick={() => prev()}
-              >
-                <img src="/assets/MOBILE/ARROW-KIRI.webp" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
-              </button>
+            {ownedMona.length > 0 && (
+                <button
+                  className="hover:-translate-y-px w-1/12 inset-2"
+                  onClick={() => prev()}
+                >
+                  <img
+                    src="/assets/MOBILE/ARROW-KIRI.webp"
+                    className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto"
+                  />
+                </button>
+              )}
               <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
                   {!ownedMona.length && (
                    <div className="relative flex flex-col w-full items-center text-center">
                       <div className="flex flex-wrap justify-center items-center space-x-4">
                         <img src="/assets/MOBILE/DONAT-HAVE-MONA.webp" className="h-30 w-3/4 sm:h-11/12 sm:w-11/12" />
-                        <button className="mt-4 px-4 py-2">
-                          <img src="/assets/MOBILE/BUY-NOW.webp" className="w-2/3" />
+                        <button 
+                          className=" mt-4 px-4 left-0">
+                          <img src="/assets/MOBILE/BUY-NOW.webp" className=" items-right justify-end right-0 w-1/2" />
                         </button>
                       </div>
                       </div>
@@ -367,12 +373,17 @@ const Claim: NextPage = () => {
                     </div>
                   )}
                 </div>
+                {ownedMona.length > 0 && (
                 <button
                   className="hover:-translate-y-px w-1/12 inset-2"
                   onClick={() => next()}
                 >
-                  <img src="/assets/MOBILE/ARROW-KANAN.webp" className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto" />
+                  <img
+                    src="/assets/MOBILE/ARROW-KANAN.webp"
+                    className="h-14 w-14 min-w-[2rem] min-h-[2rem] mx-auto"
+                  />
                 </button>
+              )}
               </div>
 
               {!!ownedMona.length && (
