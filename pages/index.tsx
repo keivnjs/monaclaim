@@ -342,16 +342,17 @@ const Claim: NextPage = () => {
               <div className="relative flex items-center w-10/12 h-full px-[2.5px]">
                   {!ownedMona.length && (
                    <div className="relative flex flex-col w-full items-center text-center">
-                      <div className="flex flex-wrap justify-center items-center space-x-4">
-                        <img src="/assets/MOBILE/DONAT-HAVE-MONA.webp" className="h-30 w-3/4 sm:h-11/12 sm:w-11/12" />
-                        <button 
-                          className=" mt-4 px-4 right-0">
-                            <a href="https://www.opensea.io" target="_blank" rel="noopener noreferrer">
-                              <img src="/assets/MOBILE/BUY-NOW.webp" className="items-right justify-end right-0 w-1/2" />
-                            </a>
-                        </button>
-                      </div>
-                      </div>
+                   <div className="flex flex-wrap justify-center items-center space-x-4 relative">
+                     <img src="/assets/MOBILE/DONAT-HAVE-MONA.webp" className="h-30 w-3/4 sm:h-11/12 sm:w-11/12" />
+                     <button 
+                       className="absolute bottom-0 right-20 mt-4 mr-4">
+                         <a href="https://www.opensea.io" target="_blank" rel="noopener noreferrer">
+                           <img src="/assets/MOBILE/BUY-NOW.webp" className="w-96 h-auto" />
+                         </a>
+                     </button>
+                   </div>
+                 </div>
+                 
                   )}
                   {!!ownedMona.length && (
                     <div
