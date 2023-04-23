@@ -327,7 +327,7 @@ const Claim: NextPage = () => {
             </div>
 
             <div className="relative flex flex-col items-center w-10/12 mx-auto">
-            <div className="relative flex mb-2 items-center space-x-[-5px] sm:space-x-0 text-white w-full h-2/4">
+            <div className="relative flex mb-2 items-center justify-center space-x-[-5px] sm:space-x-0 text-white w-full h-2/4">
             {ownedMona.length > 0 && (
                 <button
                   className="hover:-translate-y-px w-1/12 inset-2"
@@ -345,7 +345,7 @@ const Claim: NextPage = () => {
                       <div className="flex flex-wrap justify-center items-center space-x-4">
                         <img src="/assets/MOBILE/DONAT-HAVE-MONA.webp" className="h-30 w-3/4 sm:h-11/12 sm:w-11/12" />
                         <button 
-                          className=" mt-4 px-4 left-0">
+                          className=" mt-4 px-4 right-0">
                           <img src="/assets/MOBILE/BUY-NOW.webp" className=" items-right justify-end right-0 w-1/2" />
                         </button>
                       </div>
