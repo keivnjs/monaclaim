@@ -153,7 +153,7 @@ const Claim: NextPage = () => {
       .then((response) => {
         setClaimStatus(response);
       });
-  }, [ownedMona]);
+  }, [claimStatus]);
 
   useEffect(() => {
     if (isConnected) {
