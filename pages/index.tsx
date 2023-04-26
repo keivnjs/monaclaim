@@ -251,11 +251,13 @@ const Claim: NextPage = () => {
       <div className="relative max-w-full h-full sm:max-w-none sm:h-full">
         <img
           src="/assets/MOBILE/BLANK-MAIN-1.webp"
-          className="w-full h-full sm:w-full sm:h-full max-w-full max-h-full"
+          className="w-full h-full hidden sm:block"
         />
+        <img
+      src="/assets/MOBILE/MAIN.jpg"
+      className="block sm:hidden w-full h-full" />
       </div>
-    </div>
-    
+      </div>
       )};
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
