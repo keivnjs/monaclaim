@@ -248,14 +248,14 @@ const Claim: NextPage = () => {
       
       {!isConnected && (
       <div className="absolute inset-x-0 bottom-0 z-10 h-full w-full">
-        <div className="relative max-w-full h-full sm:max-w-none sm:h-full">
-          <Image
-            src="/assets/MOBILE/BLANK-MAIN-1.webp"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
+      <div className="relative max-w-full h-full sm:max-w-none sm:h-full">
+        <img
+          src="/assets/MOBILE/BLANK-MAIN-1.webp"
+          className="w-full h-full sm:w-full sm:h-full max-w-full max-h-full"
+        />
       </div>
+    </div>
+    
       )};
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
