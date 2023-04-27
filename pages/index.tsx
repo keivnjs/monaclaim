@@ -173,7 +173,9 @@ const Claim: NextPage = () => {
 
       {/* Header */}
       <div className="fixed top-0 z-30 bg-black text-white flex items-center justify-center sm:justify-between px-4 md:px-12 py-3 md:py-5 w-full">
+        <a href="/">
         <img src="/assets/MOBILE/logo.webp" className="h-8 sm:h-8" />
+        </a>
         <div className="hidden md:flex md:space-x-2 md:mr-1">
           <a
             href="https://www.instagram.com/baslove.you/?igshid=Mzc1MmZhNjY%3D"
