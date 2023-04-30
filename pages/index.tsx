@@ -264,8 +264,8 @@ const Claim: NextPage = () => {
       <div className="relative flex top-4 h-full items-center justify-center mx-auto max-w-5xl z-20">
         {!isConnected && (
           <div className="h-screen w-full flex flex-col justify-center items-center">
-            <img src="/assets/MOBILE/button.webp" className="mx-auto w-full sm:w-1/2 relative z-0" />
-            <div className="absolute flex flex-col justify-center items-center -mb-36 ml-10">
+            <img src="/assets/MOBILE/button-blank.webp" className="mx-auto w-full sm:w-1/2 relative z-0" />
+            <div className="absolute flex flex-col justify-center items-center -mb-40 sm:-mb-48 ml-1 -space-y-5 sm:space-y-0">
             
             <ConnectButton.Custom>
               {({
@@ -295,7 +295,7 @@ const Claim: NextPage = () => {
                           >
                             <img
                             onClick={openConnectModal}
-                            src="/assets/PC/CONNECT-WALLET.webp"
+                            src="/assets/MOBILE/connect.webp"
                             className="mx-auto w-72 sm:w-80 mb-5 sm:mb-0 h-auto cursor-pointer hover:-translate-y-1 transition"
                           />
                           </div>
@@ -314,6 +314,9 @@ const Claim: NextPage = () => {
                 );
               }}
             </ConnectButton.Custom>
+            <a href="/checker" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/MOBILE/check.webp" className="mx-auto w-52 sm:w-80 h-auto cursor-pointer hover:-translate-y-1 transition" />
+            </a>
             </div>
           </div>
           
