@@ -182,28 +182,28 @@ const Claim: NextPage = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/IG.webp" className="w-auto h-10" />
+            <img src="/assets/MOBILE/IG.webp" className="w-auto h-10 hover:-translate-y-1 transition duration-300" />
           </a>
           <a
             href="https://twitter.com/_____basloveyou?s=21"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/TWITTER.webp" className="w-auto h-10" />
+            <img src="/assets/MOBILE/TWITTER.webp" className="w-auto h-10 hover:-translate-y-1 transition duration-300" />
           </a>
           <a
             href="https://opensea.io/collection/monaverse"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/OPENSEAB.webp" className="w-auto h-10" />
+            <img src="/assets/MOBILE/OPENSEAB.webp" className="w-auto h-10 hover:-translate-y-1 transition duration-300" />
           </a>
           <a
             href="https://discord.gg/QW4TQKjR"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/MOBILE/DICORD.webp" className="w-auto h-10" />
+            <img src="/assets/MOBILE/DICORD.webp" className="w-auto h-10 hover:-translate-y-1 transition duration-300" />
           </a>
         </div>
 
