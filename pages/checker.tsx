@@ -104,27 +104,38 @@ const Checker: NextPage = () => {
           className="w-full h-full"
         />
         <div className="absolute inset-0 flex justify-center items-center">
-              <div className="w-10/12 sm:w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg">
-
-        <div className="flex items-center justify-center space-x-4">
+        <div className="w-10/12 sm:w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg">
+        <div className="flex items-center justify-center mr-0 sm:-mr-60 ">
         <input
-          type="number"
-          min="1"
-          defaultValue=""
-          placeholder="Enter token ID"
-          className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm px-2 py-1 rounded mr-5"
-          onChange={(e) => {
-            const value = e.target.value;
-            if (value === "") {
-              setTokenId(null);
-              setIsAvailable(null);
-            } else {
-              setTokenId(parseInt(value));
-            }
-          }}
-        />
-
-        <Button onClick={checkToken}>Check</Button>
+            type="number"
+            min="1"
+            defaultValue=""
+            placeholder="Enter token ID"
+            className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm px-2 py-3 rounded-md w-full"
+            style={{ height: "3rem", maxWidth: "24rem", textAlign: "center", WebkitAppearance: "none" }}
+            onKeyPress={(event) => {
+              if (!/[0-9]/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value === "") {
+                setTokenId(null);
+                setIsAvailable(null);
+              } else {
+                setTokenId(parseInt(value));
+              }
+            }}
+            onKeyUp={(e) => {
+              if (e.key === 'Enter') {
+                checkToken();
+              }
+            }}
+          />
+        <button onClick={checkToken}>
+          <img src="/assets/MOBILE/check.webp" className="w-3/4 h-3/4" />
+        </button>
       </div>
       {tokenId !== null && isAvailable !== null && (
         <div className="items-center justify-center mt-10 flex">
