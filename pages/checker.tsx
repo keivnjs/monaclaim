@@ -117,7 +117,7 @@ const Checker: NextPage = () => {
             min="1"
             defaultValue=""
             placeholder="ENTER TOKEN ID"
-            className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-2xl py-1 px-4 sm:py-5 sm:px-24 rounded ml-5 sm:mr-5 text-center"
+            className=" bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-2xl py-1 px-4 sm:py-5 sm:px-24 rounded ml-5 sm:mr-5 text-center"
             onKeyPress={(event) => {
               if (!/[0-9]/.test(event.key)) {
                 event.preventDefault();
@@ -144,7 +144,7 @@ const Checker: NextPage = () => {
             }}
           />
           <button onClick={checkToken}>
-            <img src="/assets/MOBILE/BUTTON-CHECK.png" className="w-4/6 sm:w-3/4 h-4/6 sm:h-3/4" />
+            <img src="/assets/MOBILE/BUTTON-CHECK.png" className="w-4/6 sm:w-3/4 h-4/6 sm:h-3/4 ml-5" />
           </button>
         </div>
       </div>
