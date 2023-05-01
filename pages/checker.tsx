@@ -117,7 +117,7 @@ const Checker: NextPage = () => {
             min="1"
             defaultValue=""
             placeholder="ENTER TOKEN ID"
-            className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-2xl py-1 px-4 sm:py-5 sm:px-24 rounded ml-5 sm:mr-5"
+            className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-2xl py-1 px-4 sm:py-5 sm:px-24 rounded ml-5 sm:mr-5 text-center"
             onKeyPress={(event) => {
               if (!/[0-9]/.test(event.key)) {
                 event.preventDefault();
@@ -129,7 +129,12 @@ const Checker: NextPage = () => {
                 setTokenId(null);
                 setIsAvailable(null);
               } else {
-                setTokenId(parseInt(value));
+                if (tokenId !== null && isAvailable !== null) {
+                  setTokenId(parseInt(value));
+                  setIsAvailable(null);
+                } else {
+                  setTokenId(parseInt(value));
+                }
               }
             }}
             onKeyUp={(e) => {
@@ -146,11 +151,11 @@ const Checker: NextPage = () => {
       {tokenId !== null && isAvailable !== null && (
         <div className="items-center justify-center mt-10 flex">
           {isAvailable ? (
-            <p className="text-green-500 text-4xl">
+            <p className="text-green-500 text-2xl sm:text-4xl">
               Token ID {tokenId} is available to claim.
             </p>
           ) : (
-            <p className="text-red-500 text-4xl items-center justify-center">
+            <p className="text-red-500 text-2xl sm:text-4xl">
               Token ID {tokenId} is not available to claim
             </p>
           )}
