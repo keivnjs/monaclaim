@@ -151,11 +151,11 @@ const Checker: NextPage = () => {
       {tokenId !== null && isAvailable !== null && (
         <div className="items-center justify-center mt-10 flex">
           {isAvailable ? (
-            <p className="text-green-500 text-2xl sm:text-4xl">
+            <p className="text-green-500 text-xl sm:text-4xl">
               Token ID {tokenId} is available to claim.
             </p>
           ) : (
-            <p className="text-red-500 text-2xl sm:text-4xl">
+            <p className="text-red-500 text-xl sm:text-4xl">
               Token ID {tokenId} is not available to claim
             </p>
           )}
