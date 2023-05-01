@@ -57,6 +57,10 @@ const Checker: NextPage = () => {
           </a>
         </div>
 
+        <div className="fixed bottom-16 sm:bottom-0 left-0 p-2 hidden sm:block">
+        <p className="text-sm text-white">&copy; 2023 Monaverse. All Rights Reserved</p>
+      </div>
+
         {/* Footer */}
         <div className="fixed bottom-0 left-0 w-full md:hidden flex justify-center py-4 space-x-3 bg-black">
         <a
@@ -100,19 +104,20 @@ const Checker: NextPage = () => {
 
       <div className="absolute h-screen w-screen">
         <img
-          src="/assets/MOBILE/BLANK-BRICK-1.webp"
+          src="/assets/MOBILE/brick-wall.webp"
           className="w-full h-full"
         />
         <div className="absolute inset-0 flex justify-center items-center">
-        <div className="w-10/12 sm:w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg">
-        <div className="flex items-center justify-center mr-0 sm:-mr-60 ">
-        <input
+        <div className="w-10/12 sm:w-4/5 h-3/5 sm:h-4/5 bg-black bg-opacity-80 rounded-lg mt-0 sm:mt-20">
+        <div className="flex flex-col items-center justify-center">
+        <img src="/assets/MOBILE/CHECK-AVAILABILITY.png" className="w-11/12 h-11/12 sm:w-3/4 sm:h-3/4 mt-24 sm:mt-32 sm:mb-4" />
+        <div className="flex items-center justify-center mt-5 space-x-3">
+          <input
             type="number"
             min="1"
             defaultValue=""
-            placeholder="Enter token ID"
-            className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm px-2 py-3 rounded-md w-full"
-            style={{ height: "3rem", maxWidth: "24rem", textAlign: "center", WebkitAppearance: "none" }}
+            placeholder="ENTER TOKEN ID"
+            className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-2xl py-1 px-4 sm:py-5 sm:px-24 rounded ml-5 sm:mr-5"
             onKeyPress={(event) => {
               if (!/[0-9]/.test(event.key)) {
                 event.preventDefault();
@@ -133,9 +138,10 @@ const Checker: NextPage = () => {
               }
             }}
           />
-        <button onClick={checkToken}>
-          <img src="/assets/MOBILE/check.webp" className="w-3/4 h-3/4" />
-        </button>
+          <button onClick={checkToken}>
+            <img src="/assets/MOBILE/BUTTON-CHECK.png" className="w-4/6 sm:w-3/4 h-4/6 sm:h-3/4" />
+          </button>
+        </div>
       </div>
       {tokenId !== null && isAvailable !== null && (
         <div className="items-center justify-center mt-10 flex">
@@ -153,42 +159,6 @@ const Checker: NextPage = () => {
               </div>
             </div>
       </div>
-      {/* <h1 className="text-4xl mb-4 text-yellow-300">
-        Check Monaverse Availability
-      </h1>
-      <div className="flex items-center space-x-4">
-        <input
-          type="number"
-          min="1"
-          defaultValue=""
-          placeholder="Enter token ID"
-          className="bg-white border-2 border-blue-500 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm px-2 py-1 rounded mr-5"
-          onChange={(e) => {
-            const value = e.target.value;
-            if (value === "") {
-              setTokenId(null);
-              setIsAvailable(null);
-            } else {
-              setTokenId(parseInt(value));
-            }
-          }}
-        />
-
-        <Button onClick={checkToken}>Check</Button>
-      </div>
-      {tokenId !== null && isAvailable !== null && (
-        <div className="mt-4">
-          {isAvailable ? (
-            <p className="text-green-500">
-              Token ID {tokenId} is available to claim.
-            </p>
-          ) : (
-            <p className="text-red-500">
-              Token ID {tokenId} is not available to claim
-            </p>
-          )}
-        </div>
-      )} */}
     </div>
   );
 };
